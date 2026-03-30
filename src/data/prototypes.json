@@ -1,0 +1,56 @@
+[
+  {
+    "id": "eremit",
+    "title": "eRemit",
+    "subtitle": "Remittance Automation",
+    "description": "Full remittance automation with intelligent filtering, policy-level tracking, and AMS integration. Removes reconciliation friction for 1,744+ agents in the network.",
+    "tags": ["Agency East", "External", "Live"],
+    "status": "live",
+    "link": null
+  },
+  {
+    "id": "deadline-calculator",
+    "title": "FAR/BAR Deadline Calculator",
+    "subtitle": "Transaction Intelligence",
+    "description": "Automates 16+ critical contract date computations with full federal holiday handling. Supports both cash and financed deals.",
+    "tags": ["Agency East", "External", "Live"],
+    "status": "live",
+    "link": null
+  },
+  {
+    "id": "aatp",
+    "title": "Agent Application Tracking Portal",
+    "subtitle": "Onboarding Intelligence",
+    "description": "Agent onboarding and lifecycle management from intake through approval, with real-time visibility for agents and sales teams.",
+    "tags": ["Agency East", "Internal", "Live"],
+    "status": "live",
+    "link": null
+  },
+  {
+    "id": "myhome",
+    "title": "MyHome / Current AI",
+    "subtitle": "Conversational AI Engine",
+    "description": "Voice-first and chat-first AI layer for agents and realtors. Captures expert knowledge, builds realtor authority, and expanding into direct operations.",
+    "tags": ["Direct West", "External", "Live"],
+    "status": "live",
+    "link": null
+  },
+  {
+    "id": "discovery-bot",
+    "title": "Discovery Bot",
+    "subtitle": "Multi-Agent Employee Insights",
+    "description": "An always-on AI system that reaches employees through SMS and Slack. Captures six structured signals per interaction and converts them into actionable intelligence reports for ATS.",
+    "tags": ["Internal", "Multi-Agent", "Live"],
+    "status": "live",
+    "link": null
+  },
+  {
+    "id": "fraud-detection",
+    "title": "Fraud Detection AI",
+    "subtitle": "Risk Intelligence",
+    "description": "Proactive risk scoring, wire fraud prevention, and FinCEN-aligned detection running across Agency and Direct channels. Covers all four operational quadrants.",
+    "tags": ["Cross-Quadrant", "R&D", "In Progress"],
+    "status": "in-progress",
+    "link": null
+  }
+]

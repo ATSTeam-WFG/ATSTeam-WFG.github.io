@@ -1,0 +1,29 @@
+[
+  {
+    "id": "newsletter-intro",
+    "title": "ATS Newsletter — Bi-Weekly AI & Fraud Awareness",
+    "description": "An inside look at how ATS delivers bi-weekly intelligence to 1,744+ agents across the WFG network.",
+    "youtubeId": "",
+    "thumbnail": null,
+    "duration": "2:30",
+    "category": "Newsletter"
+  },
+  {
+    "id": "eremit-demo",
+    "title": "eRemit Walkthrough — Remittance Made Simple",
+    "description": "A live demonstration of eRemit's automated remittance workflow and reconciliation reporting.",
+    "youtubeId": "",
+    "thumbnail": null,
+    "duration": "3:45",
+    "category": "Product Demo"
+  },
+  {
+    "id": "deadline-calc-demo",
+    "title": "FAR/BAR Deadline Calculator in Action",
+    "description": "Watch how the Deadline Calculator handles 16+ critical contract date computations in seconds.",
+    "youtubeId": "",
+    "thumbnail": null,
+    "duration": "2:10",
+    "category": "Product Demo"
+  }
+]

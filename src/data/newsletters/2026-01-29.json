@@ -1,0 +1,27 @@
+{
+  "id": "2026-01-29",
+  "edition": 2,
+  "date": "2026-01-29",
+  "title": "Discovery Bot Goes Live + Fraud Detection R&D Update",
+  "summary": "ATS launches the Discovery Bot — a multi-agent AI system that surfaces real operational pain points from employees through SMS and Slack. The Fraud Detection AI research phase wraps up with promising early results.",
+  "tags": ["Discovery Bot", "Fraud Detection", "Multi-Agent AI"],
+  "author": "Anish Tatke",
+  "externalUrl": "",
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Discovery Bot: ATS Builds Internally First",
+      "body": "The Discovery Bot is now live across WFG. A conversational agent named Alex reaches employees weekly via SMS and Slack, capturing six structured signals per interaction: the problem, the workaround in use, frequency, operational impact, ideal outcome, and time cost per week. A second AI agent converts that input into a structured insight report delivered directly to ATS."
+    },
+    {
+      "type": "highlight",
+      "stat": "6",
+      "label": "Structured Signals Captured Per Interaction"
+    },
+    {
+      "type": "content",
+      "heading": "Fraud Detection R&D — Phase One Complete",
+      "body": "The first phase of Fraud Detection AI research is complete. Early results show a 94% accuracy rate in identifying suspicious wire instructions before they reach the closing table. Full deployment across Agency and Direct channels is targeted for Q2 2026."
+    }
+  ]
+}

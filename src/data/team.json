@@ -1,0 +1,42 @@
+[
+  {
+    "initials": "RO",
+    "name": "Ryan Ozonian",
+    "role": "Director, ATS",
+    "layer": "Vision and Strategy Layer",
+    "desc": "Ryan sets the direction for every ATS initiative. He bridges executive leadership with ground level execution and owns the mandate to make WFG the most AI forward title company in the industry.",
+    "gold": false
+  },
+  {
+    "initials": "VU",
+    "name": "Vedant Upganlawar",
+    "role": "AI Solutions Engineer and Systems Analyst",
+    "layer": "Systems and Integrations Layer",
+    "desc": "Vedant owns system design, backend workflow architecture, and platform integrations. He leads the Deadline Calculator and ensures every AI layer connects to WFG's core operating systems.",
+    "gold": false
+  },
+  {
+    "initials": "PK",
+    "name": "Priyal Katudia",
+    "role": "AI Strategy and Business Innovation",
+    "layer": "Strategy and Experience Layer",
+    "desc": "Priyal drives business documentation, the ATS Newsletter, AI toolkit development, and innovation strategy. She translates technical capability into strategic narrative and external facing intelligence programs.",
+    "gold": true
+  },
+  {
+    "initials": "IB",
+    "name": "Ian Bartlett",
+    "role": "Director, Agency Growth and Technology Enablement",
+    "layer": "Field Intelligence Layer",
+    "desc": "Ian is the bridge between ATS and the agent network. He leads agent collaboration, onboarding, and field data mapping. His direct access to 1,744+ agents ensures every ATS build reflects real operational need.",
+    "gold": true
+  },
+  {
+    "initials": "AT",
+    "name": "Anish Tatke",
+    "role": "Senior AI Engineer",
+    "layer": "AI Engineering Layer",
+    "desc": "Anish designs, builds, and deploys WFG's scalable AI applications. He is responsible for the automation systems, document intelligence pipelines, and the engineering backbone of the ATS platform.",
+    "gold": false
+  }
+]

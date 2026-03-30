@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WFG ATS — AI Strategy Playbook 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  :root {
+    --teal:#00C8B4;--gold:#F5A623;--navy:#0A1628;--navy2:#0F2040;--navy3:#162B55;
+    --white:#FFF;--gray:#8B9BB4;--lightgray:#C5CDD8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,200,180,.15);padding:14px 48px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{font-size:12px;font-weight:800;letter-spacing:2.5px;color:var(--teal);text-transform:uppercase;}
+  .nav-links{display:flex;gap:24px;}
+  .nav-links a{font-size:11px;font-weight:500;letter-spacing:1.5px;color:var(--gray);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+  .nav-links a:hover{color:var(--teal);}
+  .page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 60px 80px;max-width:1100px;margin:0 auto;position:relative;}
+  .full-bleed-page{background:rgba(255,255,255,.018);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+  .full-bleed-inner{max-width:1100px;margin:0 auto;padding:100px 60px 80px;}
+  .section-tag{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
+  h1{font-size:clamp(52px,8vw,96px);font-weight:900;line-height:1.0;letter-spacing:-2.5px;margin-bottom:28px;}
+  h1 span{color:var(--teal);}
+  h2{font-size:clamp(30px,4vw,50px);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:18px;}
+  h2 .accent{color:var(--teal);}h2 .gold{color:var(--gold);}
+  .lead{font-size:18px;font-weight:300;color:var(--gray);max-width:640px;line-height:1.8;margin-bottom:48px;}
+  .divider{width:48px;height:2px;background:var(--teal);margin:16px 0 36px;}
+  .divider.gold{background:var(--gold);}
+  .page-num{position:absolute;bottom:40px;right:60px;font-size:80px;font-weight:900;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;}
+  .hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:3px;color:var(--teal);text-transform:uppercase;margin-bottom:20px;}
+  .hero-sub{font-size:20px;font-weight:300;color:var(--gray);max-width:580px;line-height:1.8;margin-bottom:52px;}
+  .hero-stats{display:flex;gap:52px;flex-wrap:wrap;}
+  .hero-stat .num{font-size:34px;font-weight:800;color:var(--teal);}
+  .hero-stat .lbl{font-size:11px;color:var(--gray);letter-spacing:.5px;margin-top:2px;}
+  .quote-block{border-left:3px solid var(--gold);padding:24px 32px;background:rgba(245,166,35,.05);border-radius:0 8px 8px 0;margin:32px 0 48px;}
+  .quote-block p{font-size:19px;font-weight:300;font-style:italic;color:var(--white);line-height:1.7;}
+  .quote-block .attr{font-size:12px;color:var(--gold);margin-top:10px;font-style:normal;font-weight:600;letter-spacing:1px;}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:40px;}
+  .card{background:var(--navy2);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:30px;transition:border-color .3s,transform .2s;}
+  .card:hover{border-color:rgba(0,200,180,.25);transform:translateY(-2px);}
+  .card-icon{font-size:22px;margin-bottom:16px;}
+  .card h3{font-size:15px;font-weight:700;margin-bottom:9px;}
+  .card p{font-size:13px;color:var(--gray);line-height:1.7;}
+  .tag{display:inline-block;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);background:rgba(0,200,180,.08);padding:4px 10px;border-radius:4px;}
+  .tag.gold-tag{color:var(--gold);background:rgba(245,166,35,.08);}
+  .pillar{border-bottom:1px solid rgba(255,255,255,.06);padding:30px 0;}
+  .pillar:last-child{border-bottom:none;}
+  .pillar-header{display:flex;align-items:baseline;gap:18px;margin-bottom:10px;}
+  .pillar-num{font-size:44px;font-weight:900;color:rgba(0,200,180,.12);line-height:1;}
+  .pillar-title{font-size:19px;font-weight:700;}
+  .pillar p{font-size:13.5px;color:var(--gray);max-width:720px;line-height:1.8;}
+  .pillar-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+  .badge{font-size:10px;font-weight:600;letter-spacing:.8px;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--gray);}
+  .impact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .impact-item{background:var(--navy2);border-radius:10px;padding:26px;border:1px solid rgba(255,255,255,.05);}
+  .audience{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .impact-item h4{font-size:16px;font-weight:700;margin-bottom:10px;}
+  .impact-item ul{list-style:none;}
+  .impact-item ul li{font-size:12.5px;color:var(--gray);padding:4px 0 4px 16px;position:relative;}
+  .impact-item ul li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:11px;line-height:1.9;}
+  .diff-split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:40px;}
+  .diff-col{background:var(--navy2);border-radius:12px;padding:30px;border:1px solid rgba(255,255,255,.05);}
+  .diff-col.active{border-color:rgba(0,200,180,.25);}
+  .diff-col-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07);}
+  .diff-col-label.not{color:var(--gray);}
+  .diff-col-label.is{color:var(--teal);}
+  .diff-col ul{list-style:none;}
+  .diff-col ul li{font-size:13px;color:var(--gray);padding:7px 0 7px 20px;border-bottom:1px solid rgba(255,255,255,.04);position:relative;}
+  .diff-col.not ul li::before{content:'✕';position:absolute;left:0;color:rgba(255,80,80,.4);}
+  .diff-col.active ul li::before{content:'✓';position:absolute;left:0;color:var(--teal);}
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .team-card{background:var(--navy2);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start;transition:border-color .3s;}
+  .team-card:hover{border-color:rgba(0,200,180,.2);}
+  .avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;background:rgba(0,200,180,.12);color:var(--teal);}
+  .avatar.gold-av{background:rgba(245,166,35,.12);color:var(--gold);}
+  .team-info{flex:1;}
+  .team-name{font-size:15px;font-weight:700;margin-bottom:3px;}
+  .team-role{font-size:11px;color:var(--teal);font-weight:600;letter-spacing:.8px;margin-bottom:9px;text-transform:uppercase;}
+  .team-layer{font-size:10px;color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;}
+  .team-desc{font-size:12.5px;color:var(--gray);line-height:1.65;}
+  .contact-block{background:var(--navy2);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 36px;display:flex;align-items:center;gap:28px;margin-bottom:18px;transition:border-color .3s;}
+  .contact-block:hover{border-color:rgba(0,200,180,.25);}
+  .contact-av{width:52px;height:52px;border-radius:50%;background:rgba(0,200,180,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0;}
+  .contact-info h4{font-size:16px;font-weight:700;margin-bottom:3px;}
+  .contact-info .c-title{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:8px;}
+  .contact-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .ctag{font-size:10px;color:var(--gray);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:3px 9px;border-radius:4px;}
+  .contact-right{margin-left:auto;text-align:right;}
+  .contact-right a{display:block;font-size:13px;color:var(--gray);text-decoration:none;margin-bottom:4px;transition:color .2s;}
+  .contact-right a:hover{color:var(--teal);}
+  .forward{background:linear-gradient(135deg,var(--navy3),var(--navy2));border-radius:18px;padding:60px;border:1px solid rgba(0,200,180,.12);text-align:center;margin-bottom:60px;}
+  .forward .yr{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal);margin-bottom:18px;}
+  .forward h2{font-size:38px;font-weight:900;margin-bottom:20px;max-width:680px;margin-left:auto;margin-right:auto;}
+  .forward p{font-size:16px;color:var(--gray);max-width:580px;margin:0 auto 40px;line-height:1.8;}
+  .fwd-stats{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;}
+  .fstat .n{font-size:30px;font-weight:900;color:var(--teal);}
+  .fstat .l{font-size:11px;color:var(--gray);letter-spacing:.5px;margin-top:3px;}
+  .bridge{background:linear-gradient(135deg,var(--navy3),var(--navy2));border:1px solid rgba(0,200,180,.12);border-left:3px solid var(--teal);border-radius:12px;padding:32px 36px;margin:32px 0;}
+  .bridge h3{font-size:18px;font-weight:700;margin-bottom:10px;}
+  .bridge p{font-size:14px;color:var(--gray);line-height:1.8;}
+  .closing-strip{background:linear-gradient(90deg,rgba(0,200,180,.06),rgba(245,166,35,.04));border:1px solid rgba(0,200,180,.1);border-radius:10px;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;margin-top:40px;}
+  .closing-strip p{font-size:14px;color:var(--gray);max-width:560px;line-height:1.6;}
+  .closing-strip .motto{font-size:16px;font-weight:800;color:var(--teal);white-space:nowrap;}
+  footer{border-top:1px solid rgba(255,255,255,.05);padding:36px 60px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+  footer .f-left{font-size:11px;color:var(--gray);line-height:1.6;}
+  footer .f-right{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--teal);}
+  .bg-glow{position:fixed;pointer-events:none;z-index:0;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,180,.035) 0%,transparent 70%);top:-250px;right:-250px;}
+  .bg-glow2{position:fixed;pointer-events:none;z-index:0;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.025) 0%,transparent 70%);bottom:-150px;left:-150px;}
+
+  .diagram-wrap{background:rgba(255,255,255,.025);border:1px solid rgba(0,200,180,.12);border-radius:14px;padding:28px;margin:36px 0;}
+
+  .phase-timeline{display:flex;gap:0;margin-bottom:32px;position:relative;}
+  .phase-timeline::before{content:'';position:absolute;top:36px;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(0,200,180,.3),rgba(245,166,35,.3));z-index:0;}
+  .pt-step{flex:1;position:relative;z-index:1;padding:0 12px;}
+  .pt-dot{width:16px;height:16px;border-radius:50%;margin:0 auto 18px;position:relative;transition:transform .3s;}
+  .pt-step.done .pt-dot{background:var(--teal);box-shadow:0 0 0 4px rgba(0,200,180,.2);}
+  .pt-step.active .pt-dot{background:var(--teal);box-shadow:0 0 0 8px rgba(0,200,180,.15),0 0 0 14px rgba(0,200,180,.06);}
+  .pt-step.future .pt-dot{background:var(--gold);box-shadow:0 0 0 4px rgba(245,166,35,.2);}
+  .pt-card{background:var(--navy2);border-radius:10px;padding:20px;border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:border-color .3s,transform .3s;}
+  .pt-step.active .pt-card{border-color:rgba(0,200,180,.3);}
+  .pt-step.future .pt-card{border-color:rgba(245,166,35,.2);}
+  .pt-card:hover{transform:translateY(-3px);}
+  .pt-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+  .pt-step.done .pt-label,.pt-step.active .pt-label{color:var(--teal);}
+  .pt-step.future .pt-label{color:var(--gold);}
+  .pt-title{font-size:16px;font-weight:800;margin-bottom:8px;}
+  .pt-body{font-size:11.5px;color:var(--gray);line-height:1.6;}
+
+  .al-layer{border-radius:10px;padding:22px 26px;margin-bottom:4px;display:grid;grid-template-columns:140px 1fr;gap:20px;align-items:center;border:1px solid transparent;transition:border-color .3s,transform .3s;cursor:default;}
+  .al-layer:hover{transform:translateX(4px);}
+  .al-layer.l1{background:linear-gradient(90deg,rgba(0,200,180,.12),rgba(0,200,180,.04));border-color:rgba(0,200,180,.2);}
+  .al-layer.l2{background:linear-gradient(90deg,rgba(0,200,180,.09),rgba(0,200,180,.03));border-color:rgba(0,200,180,.15);}
+  .al-layer.l3{background:linear-gradient(90deg,rgba(245,166,35,.09),rgba(245,166,35,.03));border-color:rgba(245,166,35,.15);}
+  .al-layer.l4{background:linear-gradient(90deg,rgba(245,166,35,.12),rgba(245,166,35,.04));border-color:rgba(245,166,35,.2);}
+  .al-label-wrap{display:flex;align-items:center;gap:10px;}
+  .al-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .l1 .al-icon,.l2 .al-icon{background:rgba(0,200,180,.12);}
+  .l3 .al-icon,.l4 .al-icon{background:rgba(245,166,35,.12);}
+  .al-layer-name{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
+  .l1 .al-layer-name,.l2 .al-layer-name{color:var(--teal);}
+  .l3 .al-layer-name,.l4 .al-layer-name{color:var(--gold);}
+  .al-content strong{color:var(--white);font-weight:600;}
+  .al-content{font-size:12.5px;color:var(--gray);line-height:1.65;}
+  .al-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+  .al-chip{font-size:9.5px;font-weight:600;letter-spacing:.8px;padding:3px 8px;border-radius:3px;background:rgba(255,255,255,.05);color:var(--lightgray);}
+  .arch-arrow{text-align:center;font-size:14px;color:rgba(0,200,180,.3);margin:1px 0;user-select:none;}
+
+  .eco-detail{background:rgba(0,200,180,.06);border:1px solid rgba(0,200,180,.18);border-radius:10px;padding:18px 22px;margin-top:16px;min-height:64px;transition:opacity .3s;}
+  .eco-detail-title{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:6px;}
+  .eco-detail-body{font-size:12.5px;color:var(--gray);line-height:1.65;}
+
+  .canva-guide{background:var(--navy2);border-radius:12px;overflow:hidden;margin-top:56px;border:1px solid rgba(255,255,255,.06);}
+  .canva-guide-header{background:rgba(0,200,180,.08);padding:20px 28px;border-bottom:1px solid rgba(255,255,255,.06);}
+  .canva-guide-header h3{font-size:14px;font-weight:700;color:var(--teal);}
+  .canva-guide-header p{font-size:12px;color:var(--gray);margin-top:4px;}
+  .canva-pages{display:grid;grid-template-columns:repeat(5,1fr);}
+  .canva-page{padding:18px 20px;border-right:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+  .canva-page:nth-child(5n){border-right:none;}
+  .canva-page:nth-last-child(-n+5){border-bottom:none;}
+  .cp-num{font-size:22px;font-weight:900;color:rgba(0,200,180,.15);line-height:1;margin-bottom:6px;}
+  .cp-title{font-size:12px;font-weight:700;margin-bottom:4px;}
+  .cp-desc{font-size:11px;color:var(--gray);line-height:1.5;}
+
+  /* Discovery Bot card */
+  .discovery-bot-card{background:linear-gradient(135deg,rgba(0,200,180,.07),rgba(0,200,180,.03));border:1px solid rgba(0,200,180,.22);border-radius:14px;padding:36px 40px;margin-bottom:18px;}
+  .db-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+  .db-icon{width:48px;height:48px;border-radius:12px;background:rgba(0,200,180,.15);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .db-title-block h4{font-size:17px;font-weight:800;margin-bottom:3px;}
+  .db-title-block .db-sub{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);}
+  .db-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;}
+  .db-item{background:rgba(255,255,255,.03);border-radius:8px;padding:18px 20px;border:1px solid rgba(255,255,255,.06);}
+  .db-item-label{font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+  .db-item p{font-size:12.5px;color:var(--gray);line-height:1.7;}
+  .live-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.25);padding:4px 12px;border-radius:20px;margin-top:4px;}
+  .live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 1.8s ease infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — TABLET (≤ 900px)
+  ══════════════════════════════════════ */
+  @media (max-width:900px){
+    nav{padding:12px 24px;}
+    .nav-links{gap:16px;}
+    .page{padding:90px 32px 60px;}
+    .full-bleed-inner{padding:80px 32px 60px;}
+    .impact-grid{grid-template-columns:1fr 1fr;}
+    .diff-split{grid-template-columns:1fr 1fr;}
+    .canva-pages{grid-template-columns:repeat(3,1fr);}
+    .canva-page:nth-child(5n){border-right:1px solid rgba(255,255,255,.05);}
+    .canva-page:nth-child(3n){border-right:none;}
+    footer{padding:28px 32px;}
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — MOBILE (≤ 600px)
+  ══════════════════════════════════════ */
+  @media (max-width:600px){
+    /* NAV */
+    nav{padding:10px 16px;flex-direction:column;align-items:flex-start;gap:8px;}
+    .nav-links{gap:12px;flex-wrap:wrap;}
+    .nav-links a{font-size:10px;letter-spacing:1px;}
+
+    /* PAGE CONTAINERS */
+    .page{padding:80px 16px 48px;}
+    .full-bleed-inner{padding:60px 16px 48px;}
+    .page-num{right:16px;bottom:24px;font-size:56px;}
+
+    /* TYPOGRAPHY */
+    h1{font-size:clamp(40px,14vw,72px);letter-spacing:-1.5px;}
+    h2{font-size:clamp(26px,7vw,40px);}
+    .lead{font-size:15px;margin-bottom:32px;}
+    .hero-sub{font-size:16px;margin-bottom:36px;}
+    .hero-stats{gap:28px;}
+    .hero-stat .num{font-size:26px;}
+
+    /* QUOTE / BRIDGE */
+    .quote-block{padding:18px 20px;}
+    .quote-block p{font-size:16px;}
+    .bridge{padding:22px 22px;}
+
+    /* CARD GRID — let auto-fit handle it but clamp min */
+    .card-grid{grid-template-columns:1fr;}
+
+    /* PILLAR */
+    .pillar{padding:22px 0;}
+    .pillar-num{font-size:34px;}
+
+    /* IMPACT GRID */
+    .impact-grid{grid-template-columns:1fr;}
+
+    /* DIFF SPLIT */
+    .diff-split{grid-template-columns:1fr;}
+
+    /* PHASE TIMELINE — stack vertically */
+    .phase-timeline{flex-direction:column;gap:12px;}
+    .phase-timeline::before{display:none;}
+    .pt-step{padding:0;}
+    .pt-dot{margin:0 0 10px 0;}
+
+    /* AI LAYER — stack label + content */
+    .al-layer{grid-template-columns:1fr;gap:12px;padding:18px 16px;}
+
+    /* TEAM GRID */
+    .team-grid{grid-template-columns:1fr;}
+    .team-card{flex-direction:column;gap:14px;}
+
+    /* CONTACT BLOCK */
+    .contact-block{flex-direction:column;align-items:flex-start;gap:14px;padding:22px 18px;}
+    .contact-right{margin-left:0;text-align:left;}
+
+    /* FORWARD / CTA */
+    .forward{padding:36px 20px;}
+    .forward h2{font-size:clamp(22px,6vw,34px);}
+    .fwd-stats{gap:28px;}
+
+    /* CLOSING STRIP */
+    .closing-strip{flex-direction:column;gap:14px;padding:22px 18px;text-align:center;}
+    .closing-strip .motto{white-space:normal;}
+
+    /* CANVA GUIDE */
+    .canva-pages{grid-template-columns:1fr 1fr;}
+    .canva-page:nth-child(3n){border-right:1px solid rgba(255,255,255,.05);}
+    .canva-page:nth-child(2n){border-right:none;}
+
+    /* DISCOVERY BOT */
+    .discovery-bot-card{padding:24px 16px;}
+    .db-header{flex-direction:column;align-items:flex-start;gap:10px;}
+    .db-grid{grid-template-columns:1fr;}
+
+    /* SVG ECOSYSTEM & INITIATIVE MAP — scrollable */
+    .diagram-wrap{padding:16px;}
+    .diagram-wrap svg,.v-ring-visual svg{min-width:600px;}
+    .diagram-wrap,.v-ring-visual{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+    /* FOOTER */
+    footer{flex-direction:column;gap:12px;text-align:center;padding:24px 16px;}
+  }
+
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<nav>
+  <div class="nav-logo">WFG · ATS Playbook 2026</div>
+  <div class="nav-links">
+    <a href="#vision">Vision</a>
+    <a href="#evolution">Journey</a>
+    <a href="#model">Model</a>
+    <a href="#pillars">Pillars</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#impact">Impact</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- PAGE 1 — COVER -->
+<div style="padding-top:80px;">
+<div class="page" id="cover">
+  <div class="hero-eyebrow">WFG National Title · AI Technology &amp; Solutions · 2026</div>
+  <h1>Built to<br><span>Transform</span><br>Title.</h1>
+  <div class="divider"></div>
+  <p class="hero-sub">ATS is WFG's AI operating layer, connecting agency innovation, direct operations, and the realtor ecosystem into one intelligent system built for how title actually works.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">$719M</div><div class="lbl">2026 Revenue Target</div></div>
+    <div class="hero-stat"><div class="num">1,744</div><div class="lbl">Active Agents</div></div>
+    <div class="hero-stat"><div class="num">8.1%</div><div class="lbl">Resale Market Share Target</div></div>
+    <div class="hero-stat"><div class="num">94</div><div class="lbl">NPS Score, World Class</div></div>
+  </div>
+  <div class="page-num">01</div>
+</div>
+</div>
+
+<!-- PAGE 2 — EXECUTIVE VISION (FULL VISION EMBED) -->
+<div id="vision">
+
+<!-- Vision styles scoped inline -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,600;0,9..40,800;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+.v-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:4px;color:#00C8B4;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.v-eyebrow::before{content:'';display:inline-block;width:32px;height:1px;background:#00C8B4;}
+.v-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 72px 80px;position:relative;overflow:hidden;background:#060E1C;}
+.v-hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,200,180,0.08) 0%,transparent 70%);pointer-events:none;}
+.v-hero::after{content:'';position:absolute;bottom:-100px;left:30%;width:500px;height:500px;background:radial-gradient(circle,rgba(245,166,35,0.05) 0%,transparent 70%);pointer-events:none;}
+.v-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,12vw,160px);line-height:0.92;letter-spacing:2px;margin-bottom:36px;}
+.v-headline .l1{display:block;color:#F4F7FB;}
+.v-headline .l2{display:block;color:#00C8B4;}
+.v-headline .l3{display:block;color:rgba(244,247,251,0.15);}
+.v-sub{font-size:18px;font-weight:300;color:#A8B8CC;max-width:580px;line-height:1.85;margin-bottom:60px;}
+.v-sub strong{color:#F4F7FB;font-weight:600;}
+.v-kpis{display:flex;gap:52px;flex-wrap:wrap;}
+.v-kpi .n{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:1px;color:#00C8B4;line-height:1;}
+.v-kpi .n.gold{color:#F5A623;}
+.v-kpi .l{font-size:11px;color:#7A8BA8;letter-spacing:0.5px;margin-top:4px;}
+.v-section-full{background:rgba(255,255,255,0.018);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);}
+.v-section-full-inner{padding:120px 72px;max-width:1200px;margin:0 auto;}
+.v-section{padding:120px 72px;max-width:1200px;margin:0 auto;position:relative;}
+.v-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:4px;color:#00C8B4;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.v-label::before{content:'';display:inline-block;width:24px;height:1px;background:#00C8B4;}
+.v-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,6vw,80px);line-height:0.95;letter-spacing:1px;margin-bottom:20px;}
+.v-h .acc{color:#00C8B4;}.v-h .gold{color:#F5A623;}
+.v-lead{font-size:17px;font-weight:300;color:#A8B8CC;max-width:640px;line-height:1.85;margin-bottom:64px;}
+.v-stmt{background:linear-gradient(135deg,#0F2040,#162B55);border:1px solid rgba(0,200,180,0.18);border-left:4px solid #00C8B4;border-radius:16px;padding:56px 60px;margin-bottom:64px;position:relative;overflow:hidden;}
+.v-stmt::before{content:'"';position:absolute;top:-10px;left:40px;font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(0,200,180,0.04);line-height:1;pointer-events:none;}
+.v-stmt p{font-size:22px;font-weight:300;font-style:italic;color:#F4F7FB;line-height:1.7;max-width:800px;}
+.v-stmt .attr{font-size:12px;color:#F5A623;font-style:normal;font-weight:700;letter-spacing:2px;margin-top:20px;text-transform:uppercase;}
+.v-four-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:16px;overflow:hidden;margin-bottom:48px;}
+.v-quad{background:#0B1830;border:1px solid rgba(255,255,255,0.05);padding:44px 40px;position:relative;overflow:hidden;transition:background 0.3s,border-color 0.3s;}
+.v-quad:hover{background:#0F2040;border-color:rgba(0,200,180,0.2);}
+.v-quad::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;border-radius:0 0 0 100%;opacity:0.06;}
+.v-quad.q1::after,.v-quad.q3::after{background:#00C8B4;}
+.v-quad.q2::after,.v-quad.q4::after{background:#F5A623;}
+.v-quad-axis{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;gap:8px;align-items:center;}
+.v-pill{padding:3px 10px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.v-pill-teal{background:rgba(0,200,180,0.12);color:#00C8B4;}
+.v-pill-gold{background:rgba(245,166,35,0.12);color:#F5A623;}
+.v-quad h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1px;margin-bottom:14px;}
+.v-quad p{font-size:13.5px;color:#7A8BA8;line-height:1.75;}
+.v-quad-icon{font-size:28px;margin-bottom:14px;}
+.v-rings-section{padding:80px 72px 120px;max-width:1200px;margin:0 auto;}
+.v-ring-visual{width:100%;max-width:860px;margin:0 auto;}
+.v-method-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-radius:12px;overflow:hidden;margin-bottom:40px;}
+.v-mstep{background:#0B1830;border:1px solid rgba(255,255,255,0.05);padding:36px 24px;position:relative;transition:background 0.3s,border-color 0.3s;}
+.v-mstep:not(:last-child)::after{content:'→';position:absolute;top:50%;right:-12px;transform:translateY(-50%);color:#00C8B4;font-size:18px;font-weight:300;z-index:2;}
+.v-mstep:hover{background:#0F2040;border-color:rgba(0,200,180,0.2);}
+.v-mstep-num{font-family:'Bebas Neue',sans-serif;font-size:56px;color:rgba(0,200,180,0.08);line-height:1;margin-bottom:8px;}
+.v-mstep h4{font-size:13px;font-weight:700;margin-bottom:8px;color:#00C8B4;}
+.v-mstep p{font-size:11.5px;color:#7A8BA8;line-height:1.7;}
+.v-horizon{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px;}
+.v-hor-card{background:#0B1830;border-radius:14px;border:1px solid rgba(255,255,255,0.05);padding:40px 36px;transition:transform 0.25s,border-color 0.25s;}
+.v-hor-card:hover{transform:translateY(-4px);border-color:rgba(0,200,180,0.2);}
+.v-hor-card.h2{border-color:rgba(0,200,180,0.12);}
+.v-hor-card.h3{border-color:rgba(245,166,35,0.12);}
+.v-hor-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;padding:4px 10px;display:inline-block;border-radius:4px;}
+.v-hor-tag.t1{color:#7A8BA8;background:rgba(255,255,255,0.04);}
+.v-hor-tag.t2{color:#00C8B4;background:rgba(0,200,180,0.08);}
+.v-hor-tag.t3{color:#F5A623;background:rgba(245,166,35,0.08);}
+.v-hor-card h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;margin-bottom:14px;line-height:1;}
+.v-hor-card .year{font-size:12px;color:#7A8BA8;margin-bottom:20px;font-family:'DM Mono',monospace;}
+.v-hor-items{list-style:none;}
+.v-hor-items li{font-size:13px;color:#A8B8CC;padding:7px 0 7px 18px;border-bottom:1px solid rgba(255,255,255,0.04);position:relative;}
+.v-hor-items li:last-child{border-bottom:none;}
+.v-hor-items li::before{content:'↗';position:absolute;left:0;color:#00C8B4;font-size:11px;line-height:1.9;}
+.v-hor-card.h3 .v-hor-items li::before{color:#F5A623;}
+.v-manifesto{background:linear-gradient(135deg,#0F2040 0%,#162B55 100%);border-radius:20px;padding:80px 72px;border:1px solid rgba(0,200,180,0.12);text-align:center;position:relative;overflow:hidden;margin:40px 0;}
+.v-manifesto::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00C8B4,#F5A623,#00C8B4,transparent);}
+.v-manifesto-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:4px;color:#00C8B4;text-transform:uppercase;margin-bottom:32px;}
+.v-manifesto h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);line-height:0.95;letter-spacing:2px;margin-bottom:36px;max-width:800px;margin-left:auto;margin-right:auto;}
+.v-manifesto h2 .acc{color:#00C8B4;}.v-manifesto h2 .gold{color:#F5A623;}
+.v-manifesto p{font-size:17px;font-weight:300;color:#A8B8CC;max-width:620px;margin:0 auto;line-height:1.85;}
+.v-connector{width:2px;height:60px;background:linear-gradient(to bottom,#00C8B4,transparent);margin:0 auto;}
+.v-reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.v-reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ══════════════════════════════════════
+   VISION SECTION RESPONSIVE — TABLET (≤ 900px)
+══════════════════════════════════════ */
+@media (max-width:900px){
+  .v-hero{padding:90px 32px 60px;}
+  .v-section-full-inner{padding:80px 32px;}
+  .v-section{padding:80px 32px;}
+  .v-rings-section{padding:60px 32px 80px;}
+  .v-four-grid{grid-template-columns:1fr 1fr;}
+  .v-method-steps{grid-template-columns:1fr 1fr;}
+  .v-mstep:not(:last-child)::after{display:none;}
+  .v-horizon{grid-template-columns:1fr 1fr;}
+  .v-hor-card.h3{grid-column:1 / -1;}
+  .v-manifesto{padding:56px 40px;}
+}
+
+/* ══════════════════════════════════════
+   VISION SECTION RESPONSIVE — MOBILE (≤ 600px)
+══════════════════════════════════════ */
+@media (max-width:600px){
+  .v-hero{padding:80px 16px 52px;}
+  .v-headline{font-size:clamp(44px,16vw,80px);margin-bottom:20px;}
+  .v-sub{font-size:15px;margin-bottom:36px;}
+  .v-kpis{gap:24px;}
+  .v-kpi .n{font-size:38px;}
+  .v-section-full-inner{padding:56px 16px;}
+  .v-section{padding:56px 16px;}
+  .v-rings-section{padding:48px 16px 60px;}
+  .v-stmt{padding:28px 20px;}
+  .v-stmt p{font-size:17px;}
+  .v-four-grid{grid-template-columns:1fr;}
+  .v-quad{padding:28px 20px;}
+  .v-method-steps{grid-template-columns:1fr;}
+  .v-mstep:not(:last-child)::after{display:none;}
+  .v-mstep{padding:24px 18px;}
+  .v-horizon{grid-template-columns:1fr;}
+  .v-hor-card.h3{grid-column:auto;}
+  .v-hor-card{padding:26px 20px;}
+  .v-manifesto{padding:44px 20px;border-radius:14px;}
+  .v-manifesto h2{margin-bottom:20px;}
+  .v-manifesto p{font-size:15px;}
+  .v-ring-visual{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .v-ring-visual svg{min-width:640px;}
+}
+</style>
+
+<!-- HERO -->
+<section class="v-hero">
+  <div class="v-eyebrow">ATS · AI Technology &amp; Solutions · WFG National Title</div>
+  <h1 class="v-headline">
+    <span class="l1">THE AI</span>
+    <span class="l2">INFRASTRUCTURE</span>
+    <span class="l3">OF REAL ESTATE.</span>
+  </h1>
+  <p class="v-sub">ATS is WFG's <strong>research, innovation, and AI deployment engine.</strong> We find the real problems, build tools that actually work, and put them in the hands of agents, realtors, and operators. We move fast, we stay curious, and we keep WFG ahead.</p>
+  <div class="v-kpis">
+    <div class="v-kpi"><div class="n">1,744<span style="font-size:24px">+</span></div><div class="l">Agents in Network</div></div>
+    <div class="v-kpi"><div class="n gold">4</div><div class="l">Quadrants Covered</div></div>
+    <div class="v-kpi"><div class="n">94</div><div class="l">NPS Score</div></div>
+    <div class="v-kpi"><div class="n gold">$719M</div><div class="l">2026 Revenue Target</div></div>
+  </div>
+</section>
+
+<!-- CORE MANDATE -->
+<div class="v-section-full">
+<div class="v-section-full-inner">
+  <div class="v-label v-reveal">Core Mandate</div>
+  <h2 class="v-h v-reveal">What <span class="acc">ATS</span><br>Is Built to Do.</h2>
+  <div class="v-stmt v-reveal">
+    <p>ATS exists to ensure that AI is not an abstract capability, but a practical advantage for every individual working with WFG. It empowers every agent, every realtor, every closer, and every operations lead. We anticipate challenges before they surface, translate the potential of AI into purposeful, high-impact solutions, and operationalize them at scale across WFG. We are not only a support function, but also the innovation layer that continuously positions WFG ahead of the industry it operates in.</p>
+    <div class="attr">ATS Vision · 2026</div>
+  </div>
+  <p class="v-lead v-reveal">ATS sits at the intersection of research, field intelligence, and engineering. That combination lets us move from a real user pain point to a deployed solution faster than any comparable team in title services.</p>
+</div>
+</div>
+
+<!-- FOUR QUADRANTS -->
+<div class="v-section">
+  <div class="v-label v-reveal">Strategic Coverage</div>
+  <h2 class="v-h v-reveal">All Four <span class="acc">Bases.</span><br>One <span class="gold">Team.</span></h2>
+  <p class="v-lead v-reveal">ATS is the only team in WFG with a mandate that spans every operational channel. Agency East and Direct West, internal operations and external tools. That full coverage is what makes what we build so much more valuable than point solutions.</p>
+  <div class="v-four-grid v-reveal">
+    <div class="v-quad q1">
+      <div class="v-quad-icon">🤝</div>
+      <div class="v-quad-axis"><span class="v-pill v-pill-teal">Agency East</span><span style="color:#7A8BA8;font-size:9px;font-weight:700;letter-spacing:2px;">EXTERNAL TOOLS</span></div>
+      <h3>Agent-Facing Tools</h3>
+      <p>Tools agents use directly in their day-to-day work. eRemit handles remittance, FieldIQ gives agents a real CRM built for small teams, and the FAR/BAR Smart Deadline Calculator removes one of the most common sources of transaction confusion. Fraud Detection AI sits here too, surfacing risk before it becomes a problem.</p>
+    </div>
+    <div class="v-quad q2">
+      <div class="v-quad-icon">🏠</div>
+      <div class="v-quad-axis"><span class="v-pill v-pill-gold">Direct West</span><span style="color:#7A8BA8;font-size:9px;font-weight:700;letter-spacing:2px;">EXTERNAL TOOLS</span></div>
+      <h3>Realtor Ecosystem</h3>
+      <p>Direct is earlier in the ATS journey and we are building it with the same intentionality. MyHome / Current AI gives realtors a conversational AI engine for marketing and client engagement. The ALTA Chatbot Partnership, currently in planning, will extend that reach company-wide. Fraud Detection AI covers this side as well.</p>
+    </div>
+    <div class="v-quad q3">
+      <div class="v-quad-icon">⚙️</div>
+      <div class="v-quad-axis"><span class="v-pill v-pill-teal">Agency East</span><span style="color:#7A8BA8;font-size:9px;font-weight:700;letter-spacing:2px;">INTERNAL OPS</span></div>
+      <h3>Agency Operations</h3>
+      <p>The back-office layer that quietly removes friction from every file. AATP tracks agent applications, the ATS Discovery Bot gives internal staff a structured way to surface requests to ATS, Title Search Statements go out automatically, OKR Automation keeps leadership informed, and MuleSoft plus Salesforce tie the systems together. Knowledge Bases ensure nothing lives only in someone's inbox.</p>
+    </div>
+    <div class="v-quad q4">
+      <div class="v-quad-icon">🔬</div>
+      <div class="v-quad-axis"><span class="v-pill v-pill-gold">Direct West</span><span style="color:#7A8BA8;font-size:9px;font-weight:700;letter-spacing:2px;">INTERNAL OPS</span></div>
+      <h3>Direct Operations</h3>
+      <p>The ATS Newsletter keeps both Agency and Direct teams informed and sharp, with fraud awareness content reaching the whole network bi-weekly. The Fraud Awareness Series runs alongside it. Fraud Detection R&amp;D operates at the internal level here too, ensuring Direct operations have the same rigour and protection as the rest of the business.</p>
+    </div>
+  </div>
+  <div class="v-stmt v-reveal" style="border-left-color:#F5A623;margin-top:0;">
+    <p><strong style="color:#F5A623;">Fraud Detection sits across all four quadrants.</strong> It is the one initiative that does not belong to a single channel. It protects agents externally, supports staff internally, and covers Agency East and Direct West. That is by design.</p>
+  </div>
+  <div class="v-connector"></div>
+</div>
+
+<!-- INITIATIVE MAP SVG -->
+<div class="v-rings-section">
+  <div class="v-label v-reveal">Initiative Map</div>
+  <h2 class="v-h v-reveal">How <span class="acc">ATS</span><br>Covers <span class="gold">All Four Bases.</span></h2>
+  <p class="v-lead v-reveal">Every ATS initiative maps to one of four operational zones. Agency East on the right, Direct West on the left. External tools above the line, internal operations below. Fraud Detection R&amp;D is the one initiative that runs through all four.</p>
+  <div class="v-ring-visual v-reveal">
+    <svg viewBox="0 0 1100 820" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+      <defs>
+        <radialGradient id="v-coreGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00C8B4" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#00C8B4" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="v-glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="v-softglow"><feGaussianBlur stdDeviation="8" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect x="552" y="40" width="508" height="360" fill="rgba(0,200,180,0.025)"/>
+      <rect x="552" y="420" width="508" height="360" fill="rgba(245,166,35,0.02)"/>
+      <rect x="40" y="40" width="508" height="360" fill="rgba(0,200,180,0.018)"/>
+      <rect x="40" y="420" width="508" height="360" fill="rgba(245,166,35,0.015)"/>
+      <line x1="550" y1="40" x2="550" y2="780" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+      <line x1="40" y1="410" x2="1060" y2="410" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+      <text x="1050" y="68" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="15" fill="#00C8B4" opacity="0.5" letter-spacing="3">AGENCY / EAST</text>
+      <text x="1050" y="86" text-anchor="end" font-family="'DM Mono',monospace" font-size="10" fill="#00C8B4" opacity="0.3" letter-spacing="2">EXTERNAL</text>
+      <text x="1050" y="754" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="15" fill="#00C8B4" opacity="0.5" letter-spacing="3">AGENCY / EAST</text>
+      <text x="1050" y="772" text-anchor="end" font-family="'DM Mono',monospace" font-size="10" fill="#00C8B4" opacity="0.3" letter-spacing="2">INTERNAL</text>
+      <text x="50" y="68" font-family="'Bebas Neue',sans-serif" font-size="15" fill="#F5A623" opacity="0.5" letter-spacing="3">DIRECT / WEST</text>
+      <text x="50" y="86" font-family="'DM Mono',monospace" font-size="10" fill="#F5A623" opacity="0.3" letter-spacing="2">EXTERNAL</text>
+      <text x="50" y="754" font-family="'Bebas Neue',sans-serif" font-size="15" fill="#F5A623" opacity="0.5" letter-spacing="3">DIRECT / WEST</text>
+      <text x="50" y="772" font-family="'DM Mono',monospace" font-size="10" fill="#F5A623" opacity="0.3" letter-spacing="2">INTERNAL</text>
+      <ellipse cx="550" cy="410" rx="72" ry="54" fill="url(#v-coreGlow)" stroke="#00C8B4" stroke-width="2" filter="url(#v-softglow)"/>
+      <text x="550" y="404" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="20" fill="#00C8B4" filter="url(#v-glow)" letter-spacing="3">ATS</text>
+      <text x="550" y="420" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#7A8BA8" letter-spacing="2">R&amp;D · DEPLOY · ITERATE</text>
+      <!-- eRemit -->
+      <line x1="608" y1="378" x2="680" y2="270" stroke="#00C8B4" stroke-width="1" opacity="0.3"/>
+      <circle cx="686" cy="262" r="7" fill="#00C8B4" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="700" y="246" width="110" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
+      <text x="755" y="261" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">eRemit</text>
+      <text x="755" y="275" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Agency · External</text>
+      <!-- FAR/BAR -->
+      <line x1="620" y1="370" x2="840" y2="190" stroke="#00C8B4" stroke-width="1" opacity="0.3"/>
+      <circle cx="847" cy="184" r="7" fill="#00C8B4" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="861" y="168" width="178" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
+      <text x="950" y="183" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">FAR/BAR Deadline Calc</text>
+      <text x="950" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Agency · External</text>
+      <!-- FieldIQ -->
+      <line x1="622" y1="395" x2="870" y2="310" stroke="#00C8B4" stroke-width="1" opacity="0.3"/>
+      <circle cx="877" cy="306" r="7" fill="#00C8B4" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="891" y="290" width="158" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
+      <text x="970" y="305" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">FieldIQ SalesCRM</text>
+      <text x="970" y="319" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Agency · External</text>
+      <!-- AATP -->
+      <line x1="608" y1="442" x2="680" y2="510" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+      <circle cx="686" cy="516" r="7" fill="#F5A623" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="700" y="500" width="90" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1.2" opacity="0.85"/>
+      <text x="745" y="515" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">AATP</text>
+      <text x="745" y="529" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623">Agency · Internal</text>
+      <!-- Discovery Bot -->
+      <line x1="620" y1="448" x2="840" y2="520" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+      <circle cx="847" cy="523" r="7" fill="#F5A623" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="861" y="507" width="140" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1.2" opacity="0.85"/>
+      <text x="931" y="522" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">Discovery Bot</text>
+      <text x="931" y="536" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623">Agency · Internal</text>
+      <!-- OKR Automation -->
+      <line x1="617" y1="456" x2="810" y2="608" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+      <circle cx="816" cy="614" r="7" fill="#F5A623" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="830" y="598" width="148" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1.2" opacity="0.85"/>
+      <text x="904" y="613" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">OKR Automation</text>
+      <text x="904" y="627" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623">Agency · Internal</text>
+      <!-- MuleSoft + Salesforce -->
+      <line x1="605" y1="458" x2="686" y2="640" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+      <circle cx="690" cy="646" r="7" fill="#F5A623" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="704" y="630" width="174" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1.2" opacity="0.85"/>
+      <text x="791" y="645" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">MuleSoft + Salesforce</text>
+      <text x="791" y="659" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623">Agency · Internal</text>
+      <!-- Title Search Automation -->
+      <line x1="590" y1="462" x2="590" y2="700" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+      <circle cx="590" cy="706" r="7" fill="#F5A623" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="604" y="690" width="186" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1.2" opacity="0.85"/>
+      <text x="697" y="705" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">Title Search Automation</text>
+      <text x="697" y="719" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623">Agency · Internal</text>
+      <!-- Knowledge Bases -->
+      <line x1="572" y1="464" x2="920" y2="700" stroke="#F5A623" stroke-width="1" opacity="0.25" stroke-dasharray="3,3"/>
+      <circle cx="926" cy="703" r="6" fill="#F5A623" opacity="0.7" filter="url(#v-glow)"/>
+      <rect x="940" y="687" width="140" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1" opacity="0.6"/>
+      <text x="1010" y="702" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">Knowledge Bases</text>
+      <text x="1010" y="716" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623" opacity="0.7">ATS Internal</text>
+      <!-- MyHome / Current AI -->
+      <line x1="492" y1="378" x2="350" y2="240" stroke="#00C8B4" stroke-width="1" opacity="0.3"/>
+      <circle cx="344" cy="234" r="7" fill="#00C8B4" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="158" y="218" width="178" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
+      <text x="247" y="233" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">MyHome / Current AI</text>
+      <text x="247" y="247" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Direct · External</text>
+      <!-- ATS Newsletter -->
+      <line x1="492" y1="442" x2="360" y2="520" stroke="#00C8B4" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+      <circle cx="354" cy="526" r="7" fill="#00C8B4" opacity="0.85" filter="url(#v-glow)"/>
+      <rect x="168" y="510" width="178" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
+      <text x="257" y="525" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">ATS Newsletter</text>
+      <text x="257" y="539" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Agency + Direct · Internal</text>
+      <!-- Fraud Awareness Series -->
+      <line x1="484" y1="456" x2="300" y2="614" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+      <circle cx="294" cy="620" r="7" fill="#F5A623" opacity="0.9" filter="url(#v-glow)"/>
+      <rect x="108" y="604" width="178" height="38" rx="6" fill="#0B1830" stroke="#F5A623" stroke-width="1.2" opacity="0.85"/>
+      <text x="197" y="619" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">Fraud Awareness Series</text>
+      <text x="197" y="633" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#F5A623">Direct · Internal</text>
+      <!-- Fraud Detection ring -->
+      <ellipse cx="550" cy="410" rx="110" ry="82" fill="none" stroke="#FF4E6A" stroke-width="1.2" stroke-dasharray="3,5" opacity="0.45"/>
+      <text x="550" y="320" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#FF4E6A" opacity="0.75" letter-spacing="2">FRAUD DETECTION R&amp;D · ALL 4 QUADRANTS</text>
+      <!-- ALTA outer ring -->
+      <ellipse cx="550" cy="410" rx="480" ry="360" fill="none" stroke="#F5A623" stroke-width="1" stroke-dasharray="5,10" opacity="0.12"/>
+      <circle cx="550" cy="55" r="5" fill="#F5A623" opacity="0.45"/>
+      <text x="550" y="42" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#F5A623" opacity="0.55" letter-spacing="2">ALTA CHATBOT PARTNERSHIP · IN PLANNING · COMPANY WIDE</text>
+      <!-- Legend -->
+      <rect x="380" y="790" width="10" height="10" rx="2" fill="#00C8B4" opacity="0.85"/>
+      <text x="396" y="800" font-family="'DM Mono',monospace" font-size="9" fill="#7A8BA8" letter-spacing="1">External</text>
+      <rect x="470" y="790" width="10" height="10" rx="2" fill="#F5A623" opacity="0.85"/>
+      <text x="486" y="800" font-family="'DM Mono',monospace" font-size="9" fill="#7A8BA8" letter-spacing="1">Internal</text>
+      <rect x="560" y="790" width="10" height="10" rx="2" fill="#FF4E6A" opacity="0.75"/>
+      <text x="576" y="800" font-family="'DM Mono',monospace" font-size="9" fill="#7A8BA8" letter-spacing="1">Cross-cutting</text>
+      <rect x="672" y="790" width="10" height="10" rx="2" fill="#F5A623" opacity="0.3"/>
+      <text x="688" y="800" font-family="'DM Mono',monospace" font-size="9" fill="#7A8BA8" letter-spacing="1">In Planning</text>
+    </svg>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="v-section-full">
+<div class="v-section-full-inner">
+  <div class="v-label v-reveal">How We Work</div>
+  <h2 class="v-h v-reveal">The <span class="acc">Process</span><br>That Separates <span class="gold">Us.</span></h2>
+  <p class="v-lead v-reveal">ATS follows a disciplined, repeatable process that keeps users at the center of every decision. It is not a framework written on a wall. It is genuinely how this team thinks, and it is why what we ship actually gets used.</p>
+  <div class="v-method-steps v-reveal">
+    <div class="v-mstep"><div class="v-mstep-num">01</div><h4>Listen Deeply</h4><p>Structured discovery sessions with real users. Every pain point gets documented. No assumption goes unchallenged. We do not start with solutions. We start with truth.</p></div>
+    <div class="v-mstep"><div class="v-mstep-num">02</div><h4>Make Them Heard</h4><p>Follow-ups are not courtesy. They are commitment. Users know their input drove the decision. That trust is how ATS gets access to the real problems that everyone else misses.</p></div>
+    <div class="v-mstep"><div class="v-mstep-num">03</div><h4>Prototype Fast</h4><p>We lean toward a working version over a perfect spec. An imperfect live tool that surfaces real feedback is worth more than six months of requirements gathering.</p></div>
+    <div class="v-mstep"><div class="v-mstep-num">04</div><h4>Iterate with Signal</h4><p>Every deployment generates intelligence. We observe, refine, and redeploy in weeks, not quarterly cycles. The loop is the product.</p></div>
+    <div class="v-mstep"><div class="v-mstep-num">05</div><h4>Stay at the Frontier</h4><p>Every major AI release gets evaluated by ATS within days. We upskill constantly and translate what is new in AI into what is genuinely useful for WFG.</p></div>
+  </div>
+  <div class="v-stmt v-reveal" style="border-left-color:#F5A623;">
+    <p>The reason ATS solutions get adopted and stay adopted is because the people who use them felt heard before the first line was written. That is not a process detail. That is the whole strategy.</p>
+    <div class="attr" style="color:#00C8B4;">ATS Operating Principle</div>
+  </div>
+</div>
+</div>
+
+<!-- THREE HORIZONS -->
+<div class="v-section">
+  <div class="v-label v-reveal">Strategic Horizons</div>
+  <h2 class="v-h v-reveal">Where We <span class="acc">Are.</span><br>Where We're <span class="gold">Going.</span></h2>
+  <p class="v-lead v-reveal">ATS runs on three horizons at once. Shipping what is needed today, building what will matter tomorrow, and positioning WFG to set the standard for the industry.</p>
+  <div class="v-horizon v-reveal">
+    <div class="v-hor-card h1">
+      <span class="v-hor-tag t1">H1 · Now</span>
+      <h3>Deploy and Scale AI Initiatives</h3>
+      <div class="year">2025 – 2026</div>
+      <ul class="v-hor-items">
+        <li>eRemit and AATP fully operational</li>
+        <li>FieldIQ SalesCRM live for Agency agents</li>
+        <li>FAR/BAR Deadline Calculator deployed</li>
+        <li>MyHome (Current AI) serving Direct realtors</li>
+        <li>OKR Automation and Discovery Bot in production</li>
+        <li>Fraud Detection tools active across channels</li>
+        <li>ATS Newsletter expansively shared</li>
+      </ul>
+    </div>
+    <div class="v-hor-card h2">
+      <span class="v-hor-tag t2">H2 · Building</span>
+      <h3>Compound the Platform</h3>
+      <div class="year">2026 – 2027</div>
+      <ul class="v-hor-items">
+        <li>ALTA Chatbot Partnership moved from planning to live</li>
+        <li>Agency and Direct AI layers connected</li>
+        <li>Knowledge Bases scaled across all teams</li>
+        <li>Internal AI upskilling program formalised</li>
+        <li>Streamlined processes and more agent-facing solutions</li>
+      </ul>
+    </div>
+    <div class="v-hor-card h3">
+      <span class="v-hor-tag t3">H3 · Frontier</span>
+      <h3>Define the Industry</h3>
+      <div class="year">2027+</div>
+      <ul class="v-hor-items">
+        <li>WFG as the AI epicentre of the title industry</li>
+        <li>Industry AI standards shaped by WFG solutions</li>
+        <li>Predictive closing intelligence at scale</li>
+        <li>ATS methodology replicated across the company</li>
+        <li>WFG recognised as the most AI-forward title company</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<div class="v-section">
+  <div class="v-manifesto v-reveal">
+    <div class="v-manifesto-label">The ATS Manifesto</div>
+    <h2>We Do Not Wait For<br><span class="acc">The Industry</span> To <span class="gold">Catch Up.</span></h2>
+    <p>We read the research. We test the models. We talk to the people doing the actual work. And then we build the things that make their days meaningfully easier. That is not a mission statement. That is just the job, and we show up to it every day.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  const vReveals = document.querySelectorAll('.v-reveal');
+  const vObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.1});
+  vReveals.forEach(r=>vObs.observe(r));
+})();
+</script>
+
+</div>
+
+<!-- PAGE 3 — ATS JOURNEY -->
+<div class="page" id="evolution">
+  <div class="section-tag">Page 03 · The ATS Journey</div>
+  <h2>From <span class="accent">Consulting</span><br>to Platform.</h2>
+  <p class="lead">ATS began as an agency side innovation group. Over 18 months, it evolved into something far more significant — a company wide AI function with reach across every channel WFG operates.</p>
+
+  <div class="diagram-wrap">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:24px;">ATS Evolution Timeline</div>
+    <div class="phase-timeline">
+      <div class="pt-step done">
+        <div class="pt-dot"></div>
+        <div class="pt-card">
+          <div class="pt-label">Phase 1 · Jul–Sep 2025</div>
+          <div class="pt-title">Discovery</div>
+          <div class="pt-body">Workflow assessments across order entry, onboarding, closing, and remittance. Industry engagement at ALTA, Dreamforce, Chicago Underwriters. Mapping of WFG's hidden cost layers.</div>
+        </div>
+      </div>
+      <div class="pt-step active">
+        <div class="pt-dot"></div>
+        <div class="pt-card">
+          <div class="pt-label">Phase 2 · Oct–Dec 2025</div>
+          <div class="pt-title">Delivery</div>
+          <div class="pt-body">eRemit launched. Agent Application Tracking Portal deployed. OKR Automation live. ATS Newsletter scaling to 1,744+ agents. MyHome Prompts evolving into full conversational AI. From ideas to products in production.</div>
+        </div>
+      </div>
+      <div class="pt-step future">
+        <div class="pt-dot"></div>
+        <div class="pt-card">
+          <div class="pt-label">Phase 3 · 2026 &amp; Beyond</div>
+          <div class="pt-title">Platform</div>
+          <div class="pt-body">Full AI operating model spanning Agency, Direct, and Realtor channels. eRemit 2.0, Application Portal Phase 2, Deadline Calculator expansion, Fraud AI, and the MyHome Intelligence Engine — unified under one architecture.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:12px;">Key Milestones Shipped</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">eRemit ✓</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">AATP ✓</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">OKR Automation ✓</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">Deadline Calculator ✓</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">ATS Newsletter ✓</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.06);border:1px solid rgba(0,200,180,.12);color:var(--gray);">MyHome AI Engine →</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);color:var(--gold);">Fraud AI ⟳</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);color:var(--gold);">MuleSoft API ⟳</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <h3>The Shift That Matters</h3>
+    <p>ATS started by solving specific problems for specific agents. It now architects solutions that serve the entire WFG ecosystem. The same intelligence that helps an agency side title officer process a file faster is the same intelligence that helps a realtor build their practice. Solutions on solutions. Customer on customer.</p>
+  </div>
+  <div class="page-num">03</div>
+</div>
+
+<!-- PAGE 4 — AI OPERATING MODEL -->
+<div class="full-bleed-page" id="model">
+<div class="full-bleed-inner">
+  <div class="section-tag">Page 04 · The AI Operating Model</div>
+  <h2>Four Layers.<br><span class="accent">One System.</span></h2>
+  <p class="lead">ATS operates as a layered architecture, not a collection of tools. Each layer builds on the one below it, creating intelligence that compounds across the enterprise as it scales.</p>
+
+  <div class="diagram-wrap">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:20px;">AI Operating Architecture — Hover each layer</div>
+
+    <div>
+      <div class="al-layer l4">
+        <div class="al-label-wrap">
+          <div class="al-icon">🖥️</div>
+          <div>
+            <div class="al-layer-name">Experience Layer</div>
+            <div style="font-size:9px;color:var(--gray);margin-top:2px;">Every stakeholder</div>
+          </div>
+        </div>
+        <div class="al-content">
+          <strong>Agency Portal · Direct Ops Dashboard · Realtor AI Interfaces · ATS Newsletter.</strong> Designed by Priyal Katudia and delivered across WFG's full distribution network. The same intelligence, expressed differently depending on who is using it.
+          <div class="al-chips">
+            <span class="al-chip">Agency Portal</span><span class="al-chip">Direct Dashboard</span><span class="al-chip">Realtor AI</span><span class="al-chip">Newsletter</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="al-layer l3">
+        <div class="al-label-wrap">
+          <div class="al-icon">⚙️</div>
+          <div>
+            <div class="al-layer-name">Workflow Layer</div>
+            <div style="font-size:9px;color:var(--gray);margin-top:2px;">Intelligence becomes velocity</div>
+          </div>
+        </div>
+        <div class="al-content">
+          <strong>eRemit automation · Deadline Calculator · OKR reporting · Onboarding acceleration · Compliance monitoring.</strong> Reduces per-file cost, compresses cycle time, and frees people to do work that actually requires people.
+          <div class="al-chips">
+            <span class="al-chip">eRemit</span><span class="al-chip">Deadline Calculator</span><span class="al-chip">OKR Automation</span><span class="al-chip">PSA Processing</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="al-layer l2">
+        <div class="al-label-wrap">
+          <div class="al-icon">🧠</div>
+          <div>
+            <div class="al-layer-name">AI Layer</div>
+            <div style="font-size:9px;color:var(--gray);margin-top:2px;">The intelligence</div>
+          </div>
+        </div>
+        <div class="al-content">
+          <strong>MyHome &amp; Current AI · Deadline Calculator · Fraud risk scoring · Document classification · Workflow intelligence.</strong> Designed by Anish Tatke and Vedant Upganlawar, built to run continuously — not episodically.
+          <div class="al-chips">
+            <span class="al-chip">MyHome AI</span><span class="al-chip">Fraud Scoring</span><span class="al-chip">Doc Classification</span><span class="al-chip">Deadline Calculator</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="al-layer l1">
+        <div class="al-label-wrap">
+          <div class="al-icon">🗄️</div>
+          <div>
+            <div class="al-layer-name">Data Layer</div>
+            <div style="font-size:9px;color:var(--gray);margin-top:2px;">The foundation</div>
+          </div>
+        </div>
+        <div class="al-content">
+          <strong>Transaction records · Agent performance data · Market signals · Fraud indicators · Remittance history.</strong> Unified through the MuleSoft API framework, Salesforce integrations, and AMS connectivity. Every AI decision traces back to this layer.
+          <div class="al-chips">
+            <span class="al-chip">MuleSoft API</span><span class="al-chip">Salesforce</span><span class="al-chip">AMS Connect</span><span class="al-chip">Authorize.net</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;padding:16px 20px;background:rgba(0,200,180,.05);border-radius:8px;border:1px solid rgba(0,200,180,.1);display:flex;align-items:center;gap:16px;">
+      <div style="font-size:22px;opacity:.7;">↻</div>
+      <div style="font-size:12px;color:var(--gray);line-height:1.6;"><strong style="color:var(--white);">The compounding loop:</strong> Better data → sharper AI → faster workflows → richer experiences → more data. Once running, this loop is the moat.</div>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <h3>Why the Layered Model Matters</h3>
+    <p>Point solutions can be copied. A layered AI architecture cannot. Each layer reinforces the next. Better data produces better AI, better AI produces better workflows, and better workflows produce better experiences. That loop, once running, is the moat.</p>
+  </div>
+</div>
+</div>
+
+<!-- PAGES 5-6 — CAPABILITY PILLARS -->
+<div class="page" id="pillars">
+  <div class="section-tag">Pages 05–06 · Core Capability Pillars</div>
+  <h2>Five Pillars.<br><span class="accent">Built to Compound.</span></h2>
+  <p class="lead">These are the capabilities that define WFG's AI advantage. Each one delivers standalone value. Together, they create something no competitor can replicate quickly.</p>
+
+  <div class="pillar">
+    <div class="pillar-header"><div class="pillar-num">01</div><div class="pillar-title">Conversational Intelligence</div></div>
+    <p>The MyHome and Current AI platform is WFG's voice-first and chat-first AI layer for agents, realtors, and consumers. It began as a prompt toolkit and is evolving into a full conversational AI marketing and workflow engine, capturing agent expertise, structuring institutional knowledge, and distributing it at scale.</p>
+    <div class="pillar-badges"><span class="badge">MyHome Prompts</span><span class="badge">Current AI Platform</span><span class="badge">Realtor Marketing Engine</span><span class="badge">Voice First Expertise Capture</span></div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-header"><div class="pillar-num">02</div><div class="pillar-title">Transaction and Workflow Intelligence</div></div>
+    <p>Vedant Upganlawar's Deadline Calculator brings precision to one of the most error prone parts of any transaction — the contract timeline. It automates 16+ critical deadline computations, handles federal holidays, auto estimates missing inputs, and supports both cash and financed deals.</p>
+    <div class="pillar-badges"><span class="badge">Deadline Calculator</span><span class="badge">16+ Critical Date Computations</span><span class="badge">Federal Holiday Handling</span><span class="badge">Cash and Financed Deal Support</span></div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-header"><div class="pillar-num">03</div><div class="pillar-title">Document Automation and Financial Operations</div></div>
+    <p>From PSA intake through deed preparation, document processing at WFG is being rebuilt as an AI native function. eRemit brings remittance automation with intelligent filtering, policy level tracking, and AMS integration. The Agent Application Tracking Portal turns agent onboarding from a fragmented process into a structured, visible, scalable workflow.</p>
+    <div class="pillar-badges"><span class="badge">eRemit</span><span class="badge">Agent Application Tracking Portal</span><span class="badge">Document Classification AI</span><span class="badge">Contract Intake Automation</span><span class="badge">MuleSoft API Layer</span></div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-header"><div class="pillar-num">04</div><div class="pillar-title">Institutional Knowledge Systems</div></div>
+    <p>ATS builds structured, AI powered knowledge systems that turn institutional expertise into scalable infrastructure. The ATS Newsletter — active, bi-weekly, video embedded, and fraud awareness focused — is the external expression of this capability, reaching 1,744+ agents today.</p>
+    <div class="pillar-badges"><span class="badge">ATS Newsletter</span><span class="badge">AI Knowledge Bases</span><span class="badge">OKR Automation</span><span class="badge">Agent Onboarding AI</span><span class="badge">Fraud Awareness Series</span></div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-header"><div class="pillar-num">05</div><div class="pillar-title">Agency to Direct to Realtor Unification</div></div>
+    <p>A unified intelligence layer ensures that AI systems built for agency side efficiency also serve WFG's Direct Operations across 8 states and 14 metro markets, and ultimately reach the realtors and buyers those operations serve. Ian Bartlett's field intelligence network feeds real world signal back into the build loop.</p>
+    <div class="pillar-badges"><span class="badge">Agent Application Tracking Portal</span><span class="badge">Direct Ops AI Initiatives</span><span class="badge">ALTA Chatbot Partnership</span><span class="badge">Cross Channel Deployment</span></div>
+  </div>
+  <div class="page-num">05</div>
+</div>
+
+<!-- PAGE 7 — ECOSYSTEM -->
+<div class="full-bleed-page" id="ecosystem">
+<div class="full-bleed-inner">
+  <div class="section-tag">Page 07 · Product Ecosystem</div>
+  <h2>One <span class="accent">Ecosystem.</span><br>Not Separate Tools.</h2>
+  <p class="lead">Every initiative ATS runs connects to the same underlying architecture. Products talk to each other. Data flows upstream. Intelligence compounds. Click any spoke to explore.</p>
+
+  <div class="diagram-wrap" style="padding:20px;">
+    <svg style="width:100%;display:block;" viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <rect x="330" y="160" width="200" height="100" rx="12" fill="rgba(0,200,180,0.12)" stroke="rgba(0,200,180,0.4)" stroke-width="1.5"/>
+      <text x="430" y="200" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#00C8B4">ATS Intelligence Core</text>
+      <text x="430" y="218" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">Data · AI · Workflow · Experience</text>
+      <text x="430" y="234" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(0,200,180,0.7)">MuleSoft · Salesforce · AMS</text>
+      <text x="430" y="248" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(0,200,180,0.7)">Authorize.net · SSO</text>
+      <line x1="330" y1="195" x2="220" y2="140" stroke="rgba(0,200,180,0.3)" stroke-width="1" marker-end="url(#arr)" fill="none"/>
+      <line x1="330" y1="185" x2="160" y2="250" stroke="rgba(0,200,180,0.3)" stroke-width="1" marker-end="url(#arr)" fill="none"/>
+      <line x1="370" y1="260" x2="220" y2="340" stroke="rgba(0,200,180,0.3)" stroke-width="1" marker-end="url(#arr)" fill="none"/>
+      <line x1="530" y1="195" x2="640" y2="130" stroke="rgba(245,166,35,0.3)" stroke-width="1" marker-end="url(#arr)" fill="none"/>
+      <line x1="530" y1="210" x2="680" y2="255" stroke="rgba(245,166,35,0.3)" stroke-width="1" marker-end="url(#arr)" fill="none"/>
+      <line x1="490" y1="260" x2="640" y2="340" stroke="rgba(0,200,180,0.3)" stroke-width="1" marker-end="url(#arr)" fill="none"/>
+      <g class="hub-spoke-item" onclick="showSpoke(0)" style="cursor:pointer;">
+        <rect x="40" y="90" width="170" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(0,200,180,0.25)" stroke-width="0.8"/>
+        <circle cx="60" cy="120" r="5" fill="rgba(0,200,180,0.8)"/>
+        <text x="75" y="115" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">eRemit</text>
+        <text x="75" y="131" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">Remittance &amp; reconciliation</text>
+        <text x="75" y="147" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">automation at policy level</text>
+      </g>
+      <g class="hub-spoke-item" onclick="showSpoke(1)" style="cursor:pointer;">
+        <rect x="20" y="205" width="130" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(0,200,180,0.25)" stroke-width="0.8"/>
+        <circle cx="38" cy="235" r="5" fill="rgba(0,200,180,0.8)"/>
+        <text x="52" y="230" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Agent Portal</text>
+        <text x="52" y="246" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">Onboarding &amp; lifecycle</text>
+        <text x="52" y="261" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">real-time visibility</text>
+      </g>
+      <g class="hub-spoke-item" onclick="showSpoke(2)" style="cursor:pointer;">
+        <rect x="80" y="315" width="150" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(0,200,180,0.25)" stroke-width="0.8"/>
+        <circle cx="98" cy="345" r="5" fill="rgba(0,200,180,0.8)"/>
+        <text x="112" y="340" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">ATS Newsletter</text>
+        <text x="112" y="356" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">AI education &amp; fraud</text>
+        <text x="112" y="371" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">awareness, 1,744+ agents</text>
+      </g>
+      <g class="hub-spoke-item" onclick="showSpoke(3)" style="cursor:pointer;">
+        <rect x="650" y="80" width="175" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(245,166,35,0.3)" stroke-width="0.8"/>
+        <circle cx="668" cy="110" r="5" fill="rgba(245,166,35,0.8)"/>
+        <text x="683" y="105" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">MyHome &amp; Current AI</text>
+        <text x="683" y="121" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">Conversational AI for agents</text>
+        <text x="683" y="136" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">and realtors, voice-first</text>
+      </g>
+      <g class="hub-spoke-item" onclick="showSpoke(4)" style="cursor:pointer;">
+        <rect x="690" y="215" width="155" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(245,166,35,0.3)" stroke-width="0.8"/>
+        <circle cx="708" cy="245" r="5" fill="rgba(245,166,35,0.8)"/>
+        <text x="722" y="240" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Deadline Calculator</text>
+        <text x="722" y="256" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">16+ contract deadlines,</text>
+        <text x="722" y="271" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">holiday-aware automation</text>
+      </g>
+      <g class="hub-spoke-item" onclick="showSpoke(5)" style="cursor:pointer;">
+        <rect x="640" y="315" width="170" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(0,200,180,0.25)" stroke-width="0.8"/>
+        <circle cx="658" cy="345" r="5" fill="rgba(0,200,180,0.8)"/>
+        <text x="672" y="340" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Fraud Detection AI</text>
+        <text x="672" y="356" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">Risk scoring &amp; wire fraud</text>
+        <text x="672" y="371" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">prevention, FinCEN-aligned</text>
+      </g>
+    </svg>
+    <div class="eco-detail" id="eco-detail">
+      <div class="eco-detail-title" id="eco-detail-title">Click any product above to learn more</div>
+      <div class="eco-detail-body" id="eco-detail-body">Each product connects back to the ATS Intelligence Core — sharing data, surfacing signals, and reinforcing the overall system. The network effect compounds with every additional tool in use.</div>
+    </div>
+  </div>
+
+  <div class="bridge" style="margin-top:24px;">
+    <h3>The Network Effect Principle</h3>
+    <p>As more agents use WFG's AI tools, data quality improves, models sharpen, and switching costs deepen. eRemit data informs pricing intelligence. Agent workflow data improves fraud detection. Realtor AI tools build market preference for WFG. Each capability feeds the next — and that loop is the long term competitive advantage.</p>
+  </div>
+</div>
+</div>
+
+<!-- PAGE 8 — IMPACT -->
+<div class="page" id="impact">
+  <div class="section-tag">Page 08 · Impact Across the Ecosystem</div>
+  <h2>Every Channel.<br><span class="accent">Measurable Results.</span></h2>
+  <p class="lead">ATS creates real, quantifiable impact at every level of WFG's operating model — from the agent processing a file to the executive reviewing weekly performance.</p>
+
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="audience">Agency Network · 1,744 Agents</div>
+      <h4>Agent Productivity</h4>
+      <ul>
+        <li>AI assisted PSA intake reduces manual entry by 70–80%</li>
+        <li>Automated follow ups cut curative labor by 30–40%</li>
+        <li>eRemit removes remittance reconciliation friction</li>
+        <li>Deadline Calculator eliminates manual timeline computation</li>
+        <li>AATP gives agents full visibility into onboarding status</li>
+      </ul>
+    </div>
+    <div class="impact-item">
+      <div class="audience">Direct Operations · 8 States, 14 Markets</div>
+      <h4>Operational Efficiency</h4>
+      <ul>
+        <li>OKR Automation delivers standardised executive visibility weekly</li>
+        <li>Parallel workflow design cuts order cycle time by 25–40%</li>
+        <li>Document AI eliminates manual Schedule A corrections</li>
+        <li>MyHome AI being deployed to direct side agents in 2026</li>
+        <li>Fraud AI protects direct ops from wire exposure</li>
+      </ul>
+    </div>
+    <div class="impact-item">
+      <div class="audience">Realtor Ecosystem</div>
+      <h4>Realtor Engagement</h4>
+      <ul>
+        <li>Conversational AI marketing engine builds realtor authority</li>
+        <li>Voice-first expertise capture differentiates WFG partners</li>
+        <li>Automated content engine keeps realtors ahead of the market</li>
+        <li>Deadline Calculator reduces realtor side transaction confusion</li>
+        <li>The AI tools agents bring are the reason realtors stay</li>
+      </ul>
+    </div>
+    <div class="impact-item">
+      <div class="audience">Executive and Board Level</div>
+      <h4>Strategic Leverage</h4>
+      <ul>
+        <li>Per file cost reduction of 10–20% at scale</li>
+        <li>OFPE efficiency trending toward 11.5 as the 2026 target</li>
+        <li>AI as a differentiator in agency recruitment and retention</li>
+        <li>ALTA partnership positioning WFG as the industry AI leader</li>
+        <li>NPS of 94, world class and AI enhanced</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="diff-split" style="margin-top:32px;">
+    <div class="diff-col not">
+      <div class="diff-col-label not">The Industry Default</div>
+      <ul>
+        <li>AI as a point solution, vendor dependent</li>
+        <li>Automation for one team, not the whole system</li>
+        <li>Reactive fraud response</li>
+        <li>Siloed digital transformation by department</li>
+        <li>Technology as a cost center</li>
+      </ul>
+    </div>
+    <div class="diff-col active">
+      <div class="diff-col-label is">The WFG Model</div>
+      <ul>
+        <li>AI as horizontal infrastructure across all channels</li>
+        <li>Layered intelligence compounding across the system</li>
+        <li>Proactive AI scored risk detection before closing</li>
+        <li>Agency, Direct, and Realtor served by one AI layer</li>
+        <li>Technology as a margin and growth driver</li>
+      </ul>
+    </div>
+  </div>
+  <div class="page-num">08</div>
+</div>
+
+<!-- PAGE 9 — TEAM -->
+<div class="full-bleed-page" id="team">
+<div class="full-bleed-inner">
+  <div class="section-tag">Page 09 · The ATS Team</div>
+  <h2>The People<br><span class="accent">Behind the Platform.</span></h2>
+  <p class="lead">ATS is a small team with a large mandate. Each person owns a distinct layer of the operating model and together they cover the full stack from executive vision to field execution to AI engineering.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="avatar">RO</div>
+      <div class="team-info">
+        <div class="team-name">Ryan Ozonian</div>
+        <div class="team-role">Director, ATS</div>
+        <div class="team-layer">Vision and Strategy Layer</div>
+        <p class="team-desc">Ryan sets the direction for every ATS initiative. He bridges executive leadership with ground level execution and owns the mandate to make WFG the most AI forward title company in the industry.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="avatar">VU</div>
+      <div class="team-info">
+        <div class="team-name">Vedant Upganlawar</div>
+        <div class="team-role">AI Solutions Engineer and Systems Analyst</div>
+        <div class="team-layer">Systems and Integrations Layer</div>
+        <p class="team-desc">Vedant owns system design, backend workflow architecture, and platform integrations. He leads the Deadline Calculator and ensures every AI layer connects to WFG's core operating systems.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="avatar gold-av">PK</div>
+      <div class="team-info">
+        <div class="team-name">Priyal Katudia</div>
+        <div class="team-role">AI Strategy and Business Innovation</div>
+        <div class="team-layer">Strategy and Experience Layer</div>
+        <p class="team-desc">Priyal drives business documentation, the ATS Newsletter, AI toolkit development, and innovation strategy. She translates technical capability into strategic narrative and external facing intelligence programs.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="avatar gold-av">IB</div>
+      <div class="team-info">
+        <div class="team-name">Ian Bartlett</div>
+        <div class="team-role">Director, Agency Growth and Technology Enablement</div>
+        <div class="team-layer">Field Intelligence Layer</div>
+        <p class="team-desc">Ian is the bridge between ATS and the agent network. He leads agent collaboration, onboarding, and field data mapping. His direct access to 1,744+ agents ensures every ATS build reflects real operational need.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="avatar">AT</div>
+      <div class="team-info">
+        <div class="team-name">Anish Tatke</div>
+        <div class="team-role">Senior AI Engineer</div>
+        <div class="team-layer">AI Engineering Layer</div>
+        <p class="team-desc">Anish designs, builds, and deploys WFG's scalable AI applications. He is responsible for the automation systems, document intelligence pipelines, and the engineering backbone of the ATS platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge" style="margin-top:32px;">
+    <h3>How the Team Works</h3>
+    <p>ATS operates on a continuous loop. Ian surfaces what the field needs, Ryan sets the direction, Priyal shapes how it is positioned, Vedant architects how it integrates, and Anish builds what ships. Every initiative passes through all five layers — which is why everything ATS delivers is production ready and strategically grounded.</p>
+  </div>
+</div>
+</div>
+
+<!-- PAGE 10 — CONTACT + CLOSING (UPDATED) -->
+<div class="page" id="contact">
+  <div class="section-tag">Page 10 · Contact and Closing</div>
+  <h2>2026 and <span class="gold">Beyond.</span></h2>
+
+  <div class="forward">
+    <div class="yr">FORWARD LOOKING STATEMENT · 2026 AND BEYOND</div>
+    <h2>WFG Will Be the AI Infrastructure of American Real Estate.</h2>
+    <p>The ambition is not to lead in title technology. It is to become the company whose AI layer is so embedded in agent, realtor, and consumer workflows that choosing WFG is simply the intelligent default.</p>
+    <div class="fwd-stats">
+      <div class="fstat"><div class="n">2,000+</div><div class="l">Agent Network Goal</div></div>
+      <div class="fstat"><div class="n">$719M</div><div class="l">2026 Revenue Target</div></div>
+      <div class="fstat"><div class="n">8.1%</div><div class="l">Resale Market Share Target</div></div>
+    </div>
+  </div>
+
+  <div class="section-tag" style="margin-bottom:20px;">Who to Contact</div>
+  <div class="contact-block">
+    <div class="contact-av">IB</div>
+    <div class="contact-info">
+      <h4>Ian Bartlett</h4>
+      <div class="c-title">Director, Agency Growth and Technology Enablement · Primary ATS Contact</div>
+      <div class="contact-tags">
+        <span class="ctag">Agency Growth</span><span class="ctag">Technology Enablement</span><span class="ctag">Workflow Automation</span><span class="ctag">Agent Onboarding</span><span class="ctag">Strategic Partnerships</span>
+      </div>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:lbartlett@wfgtitle.com">lbartlett@wfgtitle.com</a>
+      <a href="tel:9043775316">(904) 377-5316</a>
+    </div>
+  </div>
+  <div class="contact-block">
+    <div class="contact-av" style="background:rgba(245,166,35,.1);color:var(--gold);">AT</div>
+    <div class="contact-info">
+      <h4>ATS Team</h4>
+      <div class="c-title" style="color:var(--gold);">AI Technology and Solutions · General Inquiries</div>
+      <div class="contact-tags">
+        <span class="ctag">AI Consultations</span><span class="ctag">Product Questions</span><span class="ctag">Innovation Requests</span><span class="ctag">Newsletter</span>
+      </div>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:ATSteam@wfgtitle.com">ATSteam@wfgtitle.com</a>
+    </div>
+  </div>
+
+  <!-- DISCOVERY BOT — NEW SECTION -->
+  <div class="section-tag" style="margin:36px 0 20px;">ATS in Action · Live Capability</div>
+  <div class="discovery-bot-card">
+    <div class="db-header">
+      <div class="db-icon">🤖</div>
+      <div class="db-title-block">
+        <h4>Discovery Bot — AI-Powered Employee Insights</h4>
+        <div class="db-sub">Multi-Agent Architecture · Internal Intelligence System</div>
+        <div style="margin-top:8px;"><span class="live-badge"><span class="live-dot"></span>Live Capability</span></div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--gray);line-height:1.8;max-width:760px;">Traditional feedback channels miss the real problems — the friction that never makes it into a ticket, the workaround that everyone uses but nobody documents. The Discovery Bot was built to change that. It is ATS building internally first: a proof that multi-agent AI architecture delivers measurable value inside WFG before it scales outward.</p>
+    <div class="db-grid">
+      <div class="db-item">
+        <div class="db-item-label">What It Is</div>
+        <p>An always-on AI system that reaches employees through SMS and Slack. A conversational agent named Alex engages weekly, asking about real operational pain points in a low-friction, high-trust format designed to surface what people actually experience — not just what they report.</p>
+      </div>
+      <div class="db-item">
+        <div class="db-item-label">How It Works</div>
+        <p>Alex captures six structured signals per interaction: the problem, the workaround being used, how often it occurs, its operational impact, what the ideal outcome would be, and the time cost per week. A second AI agent processes that input and converts it into a structured insight report shared directly with ATS.</p>
+      </div>
+      <div class="db-item">
+        <div class="db-item-label">Why It Exists</div>
+        <p>The most expensive problems in any organization are the ones that never get reported. The Discovery Bot creates a direct, structured channel between the field and the build team — so ATS is always solving real problems, not assumed ones.</p>
+      </div>
+      <div class="db-item">
+        <div class="db-item-label">Why It Matters</div>
+        <p>This is ATS's multi-agent architecture running in production. Two AI agents — one conversational, one analytical — working in sequence to convert unstructured human feedback into actionable intelligence. It is not a pilot. It is how ATS stays connected to the ground truth of how WFG operates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing-strip">
+    <p>At WFG, everything we do is <strong style="color:var(--white);">because of you.</strong> ATS exists to make that real through every workflow, every tool, and every piece of intelligence we put in the hands of the people who serve our customers. <em>Patrick Stone</em></p>
+    <div class="motto">IDEAS THAT IGNITE</div>
+  </div>
+
+  <div class="page-num">10</div>
+</div>
+
+<footer>
+  <div class="f-left">
+    WFG National Title Insurance Company · AI Technology and Solutions<br>
+    <span style="opacity:.45;">Strategy Playbook 2026 · Confidential · For Internal Leadership Distribution</span>
+  </div>
+  <div class="f-right">WFG · ATS · IDEAS THAT IGNITE</div>
+</footer>
+
+<script>
+const spokeData = [
+  {
+    title: "eRemit — Remittance Automation",
+    body: "Full remittance automation with intelligent filtering, policy-level tracking, detailed premium and deduction reporting, and AMS integration. Removes reconciliation friction and reporting overhead for every agent in the network."
+  },
+  {
+    title: "Agent Application Tracking Portal (AATP)",
+    body: "Agent onboarding and lifecycle management from intake through approval, with real-time visibility for agents and sales teams. Turns onboarding from a fragmented, opaque process into a structured, trackable workflow."
+  },
+  {
+    title: "ATS Newsletter and Knowledge Systems",
+    body: "AI education, fraud awareness, and institutional knowledge distributed bi-weekly across 1,744+ agents. Video-embedded, consistently formatted, and scaling as WFG's primary external knowledge channel."
+  },
+  {
+    title: "MyHome and Current AI — Conversational Intelligence",
+    body: "Voice-first and chat-first AI layer for agents and realtors. Captures expert knowledge, builds realtor authority, and is expanding beyond agency side into direct operations and consumer-facing experiences."
+  },
+  {
+    title: "Deadline Calculator — Transaction Intelligence",
+    body: "Automates 16+ critical contract date computations with full federal holiday handling. Supports both cash and financed deals. Removes guesswork from contract management for agency-side and realtor-side users alike."
+  },
+  {
+    title: "Fraud Detection AI — Risk Intelligence",
+    body: "Proactive risk scoring, wire fraud prevention, and FinCEN-aligned detection running across Agency and Direct channels. Surfaces risk before closing and protects against wire fraud and bad actor exposure across the entire WFG network."
+  }
+];
+
+function showSpoke(i) {
+  document.getElementById('eco-detail-title').textContent = spokeData[i].title;
+  document.getElementById('eco-detail-body').textContent = spokeData[i].body;
+}
+</script>
+</body>
+</html>

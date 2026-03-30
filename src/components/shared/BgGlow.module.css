@@ -1,0 +1,23 @@
+.glow1 {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,200,180,.035) 0%, transparent 70%);
+  top: -250px;
+  right: -250px;
+}
+
+.glow2 {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,166,35,.025) 0%, transparent 70%);
+  bottom: -150px;
+  left: -150px;
+}

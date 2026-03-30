@@ -1,0 +1,238 @@
+.wrapper {
+  background: rgba(255,255,255,.018);
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 60px 80px;
+}
+
+.featured {
+  background: linear-gradient(135deg, var(--navy2), var(--navy3));
+  border: 1px solid rgba(0,200,180,.2);
+  border-radius: 16px;
+  padding: 48px;
+  margin-bottom: 48px;
+}
+
+.featuredMeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.editionBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(0,200,180,.1);
+  border: 1px solid rgba(0,200,180,.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.date {
+  font-size: 12px;
+  color: var(--gray);
+  font-family: 'DM Mono', monospace;
+}
+
+.authorBy {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.featuredTitle {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.featuredSummary {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(0,200,180,.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 28px;
+}
+
+.contentSection {}
+
+.sectionHeading {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.sectionBody {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.highlight {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  background: rgba(0,200,180,.05);
+  border: 1px solid rgba(0,200,180,.12);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.highlightStat {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.highlightLabel {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.videoThumb {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.videoPlaceholder {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.readMore {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+
+.readMore:hover { opacity: 0.7; }
+
+.archiveHeader {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 16px;
+}
+
+.archive {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.archiveItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.archiveItem:last-child { border-bottom: none; }
+
+.archiveLeft {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.archiveEdition {
+  font-size: 22px;
+  font-weight: 900;
+  color: rgba(0,200,180,.15);
+  line-height: 1;
+  min-width: 32px;
+}
+
+.archiveTitle {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  transition: color 0.2s;
+}
+
+.archiveTitle:hover { color: var(--teal); }
+
+.archiveMeta {
+  font-size: 11px;
+  color: var(--gray);
+  font-family: 'DM Mono', monospace;
+}
+
+.archiveSummary {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-top: 10px;
+  max-width: 560px;
+}
+
+.archiveTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .inner { padding: 80px 32px 60px; }
+  .featured { padding: 32px; }
+}
+
+@media (max-width: 600px) {
+  .inner { padding: 60px 16px 48px; }
+  .featured { padding: 20px; }
+  .archiveItem { flex-direction: column; gap: 10px; }
+  .archiveTags { flex-direction: row; }
+}

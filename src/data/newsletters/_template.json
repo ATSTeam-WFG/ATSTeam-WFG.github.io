@@ -1,0 +1,27 @@
+{
+  "id": "YYYY-MM-DD",
+  "edition": 1,
+  "date": "YYYY-MM-DD",
+  "title": "Newsletter Title Here",
+  "summary": "2-3 sentence summary that appears in the card preview. Keep it concise and highlight the main story.",
+  "tags": ["Tag1", "Tag2", "Tag3"],
+  "author": "Author Name",
+  "externalUrl": "",
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Section Heading",
+      "body": "Section body text goes here."
+    },
+    {
+      "type": "highlight",
+      "stat": "1,744+",
+      "label": "Agents Reached This Issue"
+    },
+    {
+      "type": "video",
+      "youtubeId": "VIDEO_ID_HERE",
+      "caption": "Video caption text"
+    }
+  ]
+}

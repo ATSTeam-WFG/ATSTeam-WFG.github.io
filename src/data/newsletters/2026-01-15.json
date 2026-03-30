@@ -1,0 +1,27 @@
+{
+  "id": "2026-01-15",
+  "edition": 1,
+  "date": "2026-01-15",
+  "title": "ATS Launch — The AI Operating Layer Is Live",
+  "summary": "The ATS division officially launches its AI operating model across WFG's Agency and Direct channels. eRemit is live, the Agent Application Tracking Portal is in production, and the Deadline Calculator is deployed to agency-side agents.",
+  "tags": ["Launch", "eRemit", "AATP", "Deadline Calculator"],
+  "author": "Priyal Katudia",
+  "externalUrl": "",
+  "sections": [
+    {
+      "type": "content",
+      "heading": "The ATS Platform Is Live",
+      "body": "After months of discovery, design, and engineering, the ATS operating model is now live across WFG's agency network. Three flagship tools are in production: eRemit for remittance automation, the Agent Application Tracking Portal (AATP) for onboarding visibility, and the FAR/BAR Deadline Calculator for transaction timeline automation."
+    },
+    {
+      "type": "highlight",
+      "stat": "1,744+",
+      "label": "Agents Now Using ATS Tools"
+    },
+    {
+      "type": "content",
+      "heading": "Fraud Awareness — Wire Fraud Is Up 23% Industry-Wide",
+      "body": "The FBI's latest IC3 report shows wire fraud in real estate transactions increased 23% year-over-year. ATS's Fraud Detection AI is designed to surface risk before closing. Always verify wire instructions through a second confirmed channel before any transfer."
+    }
+  ]
+}

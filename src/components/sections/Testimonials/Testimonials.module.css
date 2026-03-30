@@ -1,0 +1,82 @@
+.wrapper {
+  padding: 100px 0 80px;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 48px;
+}
+
+.card {
+  background: var(--navy2);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 14px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(245,166,35,.2);
+  transform: translateY(-2px);
+}
+
+.quoteIcon {
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(245,166,35,.12);
+  line-height: 0.8;
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+}
+
+.quote {
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.8;
+  padding-top: 24px;
+}
+
+.attr {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 16px;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.role {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .inner { padding: 0 32px; }
+}
+
+@media (max-width: 600px) {
+  .wrapper { padding: 60px 0 48px; }
+  .inner { padding: 0 16px; }
+  .grid { grid-template-columns: 1fr; }
+}
