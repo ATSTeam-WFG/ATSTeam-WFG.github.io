@@ -278,7 +278,172 @@
     footer{flex-direction:column;gap:12px;text-align:center;padding:24px 16px;}
   }
 
+
+    /* ════════════════════════════
+       BRIEFS NAV LINK
+    ════════════════════════════ */
+    .nav-links a.briefs-link {
+      color: rgba(0,200,180,.7);
+      border: 1px solid rgba(0,200,180,.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .nav-links a.briefs-link:hover {
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+
+    /* ════════════════════════════
+       BRIEFS SHARED STYLES
+    ════════════════════════════ */
+    .briefs-section { display: none; }
+    .briefs-section.active { display: block; }
+
+    .briefs-intro-page { min-height: 100vh; padding: 120px 60px 80px; max-width: 1100px; margin: 0 auto; }
+    .briefs-series-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--teal); text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .briefs-series-label::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--teal); }
+    .briefs-intro-title { font-size: clamp(36px,6vw,68px); font-weight: 900; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 24px; }
+    .briefs-intro-title .acc { color: var(--teal); }
+    .briefs-intro-sub { font-size: 17px; font-weight: 300; color: var(--gray); max-width: 640px; line-height: 1.85; margin-bottom: 20px; }
+    .briefs-intro-divider { width: 48px; height: 2px; background: var(--teal); margin: 0 0 48px; }
+    .briefs-meta-strip { display: flex; gap: 0; background: var(--navy2); border: 1px solid rgba(255,255,255,.05); border-radius: 10px; overflow: hidden; margin-bottom: 48px; }
+    .briefs-meta-item { flex: 1; padding: 18px 24px; border-right: 1px solid rgba(255,255,255,.05); }
+    .briefs-meta-item:last-child { border-right: none; }
+    .briefs-meta-label { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 5px; }
+    .briefs-meta-val { font-size: 14px; font-weight: 600; color: var(--white); }
+
+    .briefs-issues-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; margin-bottom: 20px; }
+    .briefs-issues-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 16px; margin-bottom: 56px; }
+    .brief-issue-card { background: var(--navy2); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 28px 24px; cursor: pointer; transition: border-color .3s,transform .25s; text-decoration: none; display: block; }
+    .brief-issue-card:hover { border-color: rgba(0,200,180,.3); transform: translateY(-3px); }
+    .bic-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .bic-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+    .bic-tools { font-size: 12px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
+    .bic-arrow { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--teal); text-transform: uppercase; }
+    .bic-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-top: 10px; }
+    .bic-badge.fraud { background: rgba(255,78,106,.1); color: #FF4E6A; }
+
+    .brief-page { min-height: 100vh; padding: 120px 60px 80px; max-width: 1100px; margin: 0 auto; }
+    .brief-back-nav { display: flex; align-items: center; gap: 24px; margin-bottom: 52px; }
+    .brief-back-btn { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); cursor: pointer; transition: color .2s; display: flex; align-items: center; gap: 8px; background: none; border: 1px solid rgba(255,255,255,.07); padding: 7px 16px; border-radius: 6px; }
+    .brief-back-btn:hover { color: var(--teal); border-color: rgba(0,200,180,.3); }
+    .brief-nav-arrows { display: flex; gap: 8px; margin-left: auto; }
+    .brief-nav-btn { font-size: 11px; font-weight: 600; color: var(--gray); background: none; border: 1px solid rgba(255,255,255,.07); padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: color .2s,border-color .2s; }
+    .brief-nav-btn:hover { color: var(--teal); border-color: rgba(0,200,180,.25); }
+    .brief-nav-btn:disabled { opacity: .3; cursor: default; }
+    .brief-issue-tag { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--teal); text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .brief-issue-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--teal); }
+    .brief-title { font-size: clamp(32px,5vw,58px); font-weight: 900; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .brief-title .acc { color: var(--teal); }
+    .brief-title .red { color: #FF4E6A; }
+    .brief-intro { font-size: 16px; font-weight: 300; color: var(--gray); max-width: 680px; line-height: 1.85; margin-bottom: 52px; border-left: 2px solid rgba(0,200,180,.3); padding-left: 20px; }
+    .brief-section { margin-bottom: 52px; }
+    .brief-section-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--teal); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .brief-section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg,rgba(0,200,180,.3),transparent); }
+    .brief-section-label.red-label { color: #FF4E6A; }
+    .brief-section-label.red-label::after { background: linear-gradient(90deg,rgba(255,78,106,.3),transparent); }
+
+    .brief-tool-card { background: var(--navy2); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
+    .btc-header { padding: 24px 28px; border-bottom: 1px solid rgba(255,255,255,.05); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .btc-index { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+    .btc-name { font-size: 22px; font-weight: 800; color: var(--white); }
+    .btc-url { font-size: 12px; color: var(--teal); margin-top: 4px; }
+    .btc-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(0,200,180,.08); border: 1px solid rgba(0,200,180,.2); color: var(--teal); padding: 4px 12px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+    .btc-body { padding: 24px 28px; }
+    .btc-prose { font-size: 14px; color: var(--gray); line-height: 1.85; margin-bottom: 20px; }
+    .btc-prose strong { color: var(--white); font-weight: 600; }
+    .btc-highlight { background: rgba(0,200,180,.04); border: 1px solid rgba(0,200,180,.1); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 20px; }
+    .btc-highlight p { font-size: 13px; color: var(--lightgray); line-height: 1.8; }
+    .btc-tags-row { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.05); }
+    .btc-tag { font-size: 10px; font-weight: 600; letter-spacing: .8px; padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); color: var(--gray); }
+
+    .brief-fraud-card { background: linear-gradient(135deg,rgba(255,78,106,.04),rgba(255,78,106,.02)); border: 1px solid rgba(255,78,106,.2); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
+    .bfc-header { padding: 24px 28px; border-bottom: 1px solid rgba(255,78,106,.1); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .bfc-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #FF4E6A; margin-bottom: 6px; }
+    .bfc-name { font-size: 22px; font-weight: 800; color: var(--white); }
+    .bfc-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,78,106,.1); border: 1px solid rgba(255,78,106,.25); color: #FF4E6A; padding: 4px 12px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+    .bfc-body { padding: 24px 28px; }
+    .bfc-prose { font-size: 14px; color: var(--gray); line-height: 1.85; margin-bottom: 20px; }
+    .bfc-callout { background: rgba(255,78,106,.06); border: 1px solid rgba(255,78,106,.15); border-radius: 8px; padding: 18px 20px; margin-bottom: 18px; }
+    .bfc-callout-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #FF4E6A; margin-bottom: 12px; }
+    .bfc-list { list-style: none; }
+    .bfc-list li { font-size: 13.5px; color: var(--lightgray); padding: 6px 0 6px 18px; position: relative; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .bfc-list li:last-child { border-bottom: none; }
+    .bfc-list li::before { content: '⸰'; position: absolute; left: 0; color: #FF4E6A; font-size: 10px; line-height: 2; }
+    .bfc-guidance { background: rgba(0,200,180,.04); border: 1px solid rgba(0,200,180,.12); border-radius: 8px; padding: 18px 20px; margin-bottom: 18px; }
+    .bfc-guidance-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .bfc-guidance-list { list-style: none; }
+    .bfc-guidance-list li { font-size: 13.5px; color: var(--lightgray); padding: 6px 0 6px 18px; position: relative; }
+    .bfc-guidance-list li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-size: 11px; line-height: 1.7; }
+
+    .vid-placeholder { background: rgba(255,255,255,.02); border: 1px dashed rgba(255,255,255,.12); border-radius: 10px; padding: 0; overflow: hidden; margin-top: 20px; }
+    .vid-placeholder-header { padding: 12px 18px; border-bottom: 1px dashed rgba(255,255,255,.08); display: flex; align-items: center; gap: 10px; }
+    .vid-placeholder-icon { width: 28px; height: 28px; border-radius: 6px; background: rgba(0,200,180,.1); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--teal); flex-shrink: 0; }
+    .vid-placeholder-icon.red-icon { background: rgba(255,78,106,.1); color: #FF4E6A; }
+    .vid-placeholder-title { font-size: 12px; font-weight: 700; color: var(--lightgray); letter-spacing: .3px; }
+    .vid-placeholder-desc { font-size: 11px; color: var(--gray); margin-top: 1px; }
+    .vid-placeholder-frame { background: rgba(0,0,0,.25); min-height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 28px; }
+    .vid-placeholder-play { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; font-size: 14px; color: rgba(255,255,255,.3); }
+    .vid-placeholder-frame.red-frame .vid-placeholder-play { border-color: rgba(255,78,106,.3); color: rgba(255,78,106,.4); }
+    .vid-placeholder-embed-label { font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: .5px; font-style: italic; }
+    .vid-placeholder-footer { padding: 10px 18px; border-top: 1px dashed rgba(255,255,255,.07); display: flex; flex-wrap: wrap; gap: 8px; }
+    .vid-link { font-size: 11px; font-weight: 600; color: var(--gray); text-decoration: none; padding: 4px 10px; border: 1px solid rgba(255,255,255,.07); border-radius: 4px; transition: color .2s,border-color .2s; letter-spacing: .3px; }
+    .vid-link:hover { color: var(--teal); border-color: rgba(0,200,180,.3); }
+    .vid-link.red-link:hover { color: #FF4E6A; border-color: rgba(255,78,106,.3); }
+
+    .ref-block { margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.05); }
+    .ref-block-title { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .ref-groups { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .ref-group { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); border-radius: 8px; padding: 14px 16px; }
+    .ref-group-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+    .ref-group-label.gold-label { color: var(--gold); }
+    .ref-group-label.gray-label { color: var(--gray); }
+    .ref-link { display: flex; align-items: center; gap: 8px; padding: 5px 0; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.04); transition: color .2s; }
+    .ref-link:last-child { border-bottom: none; }
+    .ref-link-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(0,200,180,.4); flex-shrink: 0; }
+    .ref-link-dot.gold-dot { background: rgba(245,166,35,.4); }
+    .ref-link-dot.gray-dot { background: rgba(255,255,255,.15); }
+    .ref-link-text { font-size: 12px; color: var(--gray); transition: color .2s; }
+    .ref-link:hover .ref-link-text { color: var(--teal); }
+    .ref-link:hover .ref-link-dot { background: var(--teal); }
+    .ref-link-label { font-size: 9px; color: rgba(255,255,255,.2); margin-left: auto; white-space: nowrap; }
+
+    .brief-closing { background: linear-gradient(135deg,var(--navy3),var(--navy2)); border: 1px solid rgba(0,200,180,.12); border-radius: 14px; padding: 36px 40px; margin-top: 52px; }
+    .brief-closing-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+    .brief-closing p { font-size: 14px; color: var(--gray); line-height: 1.9; max-width: 700px; }
+    .brief-closing strong { color: var(--white); }
+    .brief-issue-nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; background: var(--navy2); border: 1px solid rgba(255,255,255,.05); border-radius: 12px; margin-top: 56px; }
+    .bin-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .bin-title { font-size: 14px; font-weight: 700; color: var(--white); }
+    .bin-btn { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal); background: rgba(0,200,180,.07); border: 1px solid rgba(0,200,180,.2); padding: 8px 18px; border-radius: 6px; cursor: pointer; transition: background .2s; }
+    .bin-btn:hover { background: rgba(0,200,180,.14); }
+
+    @media(max-width:900px) {
+      .briefs-intro-page,.brief-page { padding: 80px 32px 60px; }
+      .ref-groups { grid-template-columns: 1fr 1fr; }
+      .briefs-meta-strip { flex-direction: column; }
+      .briefs-meta-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.05); }
+      .briefs-meta-item:last-child { border-bottom: none; }
+    }
+    @media(max-width:600px) {
+      .briefs-intro-page,.brief-page { padding: 80px 16px 48px; }
+      .brief-title { font-size: clamp(28px,8vw,44px); }
+      .briefs-issues-grid { grid-template-columns: 1fr 1fr; }
+      .ref-groups { grid-template-columns: 1fr; }
+      .brief-back-nav { flex-wrap: wrap; gap: 12px; }
+      .brief-nav-arrows { margin-left: 0; }
+      .brief-issue-nav { flex-direction: column; gap: 14px; text-align: center; }
+      .btc-header { flex-direction: column; }
+    }
 </style>
+  <!-- Microsoft Clarity Tracking (Replace CLARITY_ID_HERE with actual ID) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w1v81us7dt");
+  </script>
 </head>
 <body>
 <div class="bg-glow"></div>
@@ -287,16 +452,19 @@
 <nav>
   <div class="nav-logo">WFG · ATS Playbook 2026</div>
   <div class="nav-links">
-    <a href="#vision">Vision</a>
-    <a href="#evolution">Journey</a>
-    <a href="#model">Model</a>
-    <a href="#pillars">Pillars</a>
-    <a href="#ecosystem">Ecosystem</a>
-    <a href="#impact">Impact</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
+    <a href="#" onclick="showMain('cover');return false;">Vision</a>
+    <a href="#" onclick="showMain('evolution');return false;">Journey</a>
+    <a href="#" onclick="showMain('model');return false;">Model</a>
+    <a href="#" onclick="showMain('pillars');return false;">Pillars</a>
+    <a href="#" onclick="showMain('ecosystem');return false;">Ecosystem</a>
+    <a href="#" onclick="showMain('impact');return false;">Impact</a>
+    <a href="#" onclick="showMain('team');return false;">Team</a>
+    <a href="#" onclick="showMain('contact');return false;">Contact</a>
+    <a href="#" onclick="showBriefs('intro');trackEvent('nav_briefs_clicked');return false;" class="briefs-link">Intelligence Briefs</a>
   </div>
 </nav>
+
+<div id="main-content">
 
 <!-- PAGE 1 — COVER -->
 <div style="padding-top:80px;">
@@ -500,7 +668,7 @@
       <div class="v-quad-icon">🔬</div>
       <div class="v-quad-axis"><span class="v-pill v-pill-gold">Direct West</span><span style="color:#7A8BA8;font-size:9px;font-weight:700;letter-spacing:2px;">INTERNAL OPS</span></div>
       <h3>Direct Operations</h3>
-      <p>The ATS Newsletter keeps both Agency and Direct teams informed and sharp, with fraud awareness content reaching the whole network bi-weekly. The Fraud Awareness Series runs alongside it. Fraud Detection R&amp;D operates at the internal level here too, ensuring Direct operations have the same rigour and protection as the rest of the business.</p>
+      <p>ATS Intelligence Briefs keeps both Agency and Direct teams informed and sharp, with fraud awareness content reaching the whole network bi-weekly. The Fraud Awareness Series runs alongside it. Fraud Detection R&amp;D operates at the internal level here too, ensuring Direct operations have the same rigour and protection as the rest of the business.</p>
     </div>
   </div>
   <div class="v-stmt v-reveal" style="border-left-color:#F5A623;margin-top:0;">
@@ -601,11 +769,11 @@
       <rect x="158" y="218" width="178" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
       <text x="247" y="233" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">MyHome / Current AI</text>
       <text x="247" y="247" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Direct · External</text>
-      <!-- ATS Newsletter -->
+      <!-- Intelligence Brief -->
       <line x1="492" y1="442" x2="360" y2="520" stroke="#00C8B4" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
       <circle cx="354" cy="526" r="7" fill="#00C8B4" opacity="0.85" filter="url(#v-glow)"/>
       <rect x="168" y="510" width="178" height="38" rx="6" fill="#0B1830" stroke="#00C8B4" stroke-width="1.2" opacity="0.85"/>
-      <text x="257" y="525" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">ATS Newsletter</text>
+      <text x="257" y="525" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="700" fill="#F4F7FB">Intelligence Brief</text>
       <text x="257" y="539" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" fill="#00C8B4">Agency + Direct · Internal</text>
       <!-- Fraud Awareness Series -->
       <line x1="484" y1="456" x2="300" y2="614" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
@@ -670,7 +838,7 @@
         <li>MyHome (Current AI) serving Direct realtors</li>
         <li>OKR Automation and Discovery Bot in production</li>
         <li>Fraud Detection tools active across channels</li>
-        <li>ATS Newsletter expansively shared</li>
+        <li>ATS Intelligence Briefs expansively shared</li>
       </ul>
     </div>
     <div class="v-hor-card h2">
@@ -743,7 +911,7 @@
         <div class="pt-card">
           <div class="pt-label">Phase 2 · Oct–Dec 2025</div>
           <div class="pt-title">Delivery</div>
-          <div class="pt-body">eRemit launched. Agent Application Tracking Portal deployed. OKR Automation live. ATS Newsletter scaling to 1,744+ agents. MyHome Prompts evolving into full conversational AI. From ideas to products in production.</div>
+          <div class="pt-body">eRemit launched. Agent Application Tracking Portal deployed. OKR Automation live. ATS Intelligence Briefs scaling to 1,744+ agents. MyHome Prompts evolving into full conversational AI. From ideas to products in production.</div>
         </div>
       </div>
       <div class="pt-step future">
@@ -763,7 +931,7 @@
         <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">AATP ✓</span>
         <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">OKR Automation ✓</span>
         <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">Deadline Calculator ✓</span>
-        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">ATS Newsletter ✓</span>
+        <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.2);color:var(--teal);">Intelligence Briefs ✓</span>
         <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(0,200,180,.06);border:1px solid rgba(0,200,180,.12);color:var(--gray);">MyHome AI Engine →</span>
         <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);color:var(--gold);">Fraud AI ⟳</span>
         <span style="font-size:10.5px;font-weight:600;padding:5px 12px;border-radius:20px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.15);color:var(--gold);">MuleSoft API ⟳</span>
@@ -798,9 +966,9 @@
           </div>
         </div>
         <div class="al-content">
-          <strong>Agency Portal · Direct Ops Dashboard · Realtor AI Interfaces · ATS Newsletter.</strong> Designed by Priyal Katudia and delivered across WFG's full distribution network. The same intelligence, expressed differently depending on who is using it.
+          <strong>Agency Portal · Direct Ops Dashboard · Realtor AI Interfaces · ATS Intelligence Briefs.</strong> Designed by Priyal Katudia and delivered across WFG's full distribution network. The same intelligence, expressed differently depending on who is using it.
           <div class="al-chips">
-            <span class="al-chip">Agency Portal</span><span class="al-chip">Direct Dashboard</span><span class="al-chip">Realtor AI</span><span class="al-chip">Newsletter</span>
+            <span class="al-chip">Agency Portal</span><span class="al-chip">Direct Dashboard</span><span class="al-chip">Realtor AI</span><span class="al-chip">Intelligence Briefs</span>
           </div>
         </div>
       </div>
@@ -890,8 +1058,8 @@
   </div>
   <div class="pillar">
     <div class="pillar-header"><div class="pillar-num">04</div><div class="pillar-title">Institutional Knowledge Systems</div></div>
-    <p>ATS builds structured, AI powered knowledge systems that turn institutional expertise into scalable infrastructure. The ATS Newsletter — active, bi-weekly, video embedded, and fraud awareness focused — is the external expression of this capability, reaching 1,744+ agents today.</p>
-    <div class="pillar-badges"><span class="badge">ATS Newsletter</span><span class="badge">AI Knowledge Bases</span><span class="badge">OKR Automation</span><span class="badge">Agent Onboarding AI</span><span class="badge">Fraud Awareness Series</span></div>
+    <p>ATS builds structured, AI powered knowledge systems that turn institutional expertise into scalable infrastructure. ATS Intelligence Briefs — active, bi-weekly, video embedded, and fraud awareness focused — is the external expression of this capability, reaching 1,744+ agents today.</p>
+    <div class="pillar-badges"><span class="badge">ATS Intelligence Briefs</span><span class="badge">AI Knowledge Bases</span><span class="badge">OKR Automation</span><span class="badge">Agent Onboarding AI</span><span class="badge">Fraud Awareness Series</span></div>
   </div>
   <div class="pillar">
     <div class="pillar-header"><div class="pillar-num">05</div><div class="pillar-title">Agency to Direct to Realtor Unification</div></div>
@@ -943,7 +1111,7 @@
       <g class="hub-spoke-item" onclick="showSpoke(2)" style="cursor:pointer;">
         <rect x="80" y="315" width="150" height="70" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(0,200,180,0.25)" stroke-width="0.8"/>
         <circle cx="98" cy="345" r="5" fill="rgba(0,200,180,0.8)"/>
-        <text x="112" y="340" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">ATS Newsletter</text>
+        <text x="112" y="340" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Intelligence Brief</text>
         <text x="112" y="356" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">AI education &amp; fraud</text>
         <text x="112" y="371" font-family="Inter,sans-serif" font-size="10" fill="#8B9BB4">awareness, 1,744+ agents</text>
       </g>
@@ -1092,7 +1260,7 @@
         <div class="team-name">Priyal Katudia</div>
         <div class="team-role">AI Strategy and Business Innovation</div>
         <div class="team-layer">Strategy and Experience Layer</div>
-        <p class="team-desc">Priyal drives business documentation, the ATS Newsletter, AI toolkit development, and innovation strategy. She translates technical capability into strategic narrative and external facing intelligence programs.</p>
+        <p class="team-desc">Priyal drives business documentation, ATS Intelligence Briefs, AI toolkit development, and innovation strategy. She translates technical capability into strategic narrative and external facing intelligence programs.</p>
       </div>
     </div>
     <div class="team-card">
@@ -1159,7 +1327,7 @@
       <h4>ATS Team</h4>
       <div class="c-title" style="color:var(--gold);">AI Technology and Solutions · General Inquiries</div>
       <div class="contact-tags">
-        <span class="ctag">AI Consultations</span><span class="ctag">Product Questions</span><span class="ctag">Innovation Requests</span><span class="ctag">Newsletter</span>
+        <span class="ctag">AI Consultations</span><span class="ctag">Product Questions</span><span class="ctag">Innovation Requests</span><span class="ctag">Intelligence Briefs</span>
       </div>
     </div>
     <div class="contact-right">
@@ -1214,6 +1382,7 @@
   </div>
   <div class="f-right">WFG · ATS · IDEAS THAT IGNITE</div>
 </footer>
+</div><!-- /main-content -->
 
 <script>
 const spokeData = [
@@ -1226,7 +1395,7 @@ const spokeData = [
     body: "Agent onboarding and lifecycle management from intake through approval, with real-time visibility for agents and sales teams. Turns onboarding from a fragmented, opaque process into a structured, trackable workflow."
   },
   {
-    title: "ATS Newsletter and Knowledge Systems",
+    title: "ATS Intelligence Brief and Knowledge Systems",
     body: "AI education, fraud awareness, and institutional knowledge distributed bi-weekly across 1,744+ agents. Video-embedded, consistently formatted, and scaling as WFG's primary external knowledge channel."
   },
   {
@@ -1243,10 +1412,1043 @@ const spokeData = [
   }
 ];
 
+const spokeEventNames = [
+  "spoke_eremit_clicked",
+  "spoke_aatp_clicked",
+  "spoke_intelligence_brief_clicked",
+  "spoke_myhome_clicked",
+  "spoke_deadline_calc_clicked",
+  "spoke_fraud_ai_clicked"
+];
+
 function showSpoke(i) {
   document.getElementById('eco-detail-title').textContent = spokeData[i].title;
   document.getElementById('eco-detail-body').textContent = spokeData[i].body;
+  if (spokeEventNames[i]) trackEvent(spokeEventNames[i]);
 }
 </script>
+
+<script>
+function trackEvent(name) {
+  if (typeof clarity === "function") {
+    clarity("event", name);
+  }
+}
+
+function showMain(id) {
+  document.getElementById('main-content').style.display = 'block';
+  document.getElementById('briefs-content').style.display = 'none';
+  const el = document.getElementById(id);
+  if (el) setTimeout(() => el.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+}
+
+function showBriefs(view) {
+  document.getElementById('main-content').style.display = 'none';
+  document.getElementById('briefs-content').style.display = 'block';
+  document.querySelectorAll('.briefs-section').forEach(s => s.classList.remove('active'));
+  const map = {intro:'briefs-intro',v1:'briefs-v1',v2:'briefs-v2',v3:'briefs-v3',v4:'briefs-v4'};
+  const t = document.getElementById(map[view]);
+  if (t) { t.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  const briefEventMap = {v1:'brief_v1_clicked',v2:'brief_v2_clicked',v3:'brief_v3_clicked',v4:'brief_v4_clicked'};
+  if (briefEventMap[view]) trackEvent(briefEventMap[view]);
+}
+</script>
+
+<!-- ══════════════════════════════════════════
+     ATS INTELLIGENCE BRIEFS
+══════════════════════════════════════════ -->
+<div id="briefs-content" style="display:none;">
+
+<!-- ── INTRO ── -->
+<div id="briefs-intro" class="briefs-section active">
+<div class="briefs-intro-page">
+  <div class="briefs-series-label">ATS · WFG National Title · Internal Series</div>
+  <h1 class="briefs-intro-title">ATS <span class="acc">Intelligent</span><br>Briefs</h1>
+  <p class="briefs-intro-sub">A running series from the ATS team designed to spotlight practical tools, useful ideas, and real-world risk patterns worth paying attention to. The goal is not to surface every trend. It's to find the few things that are genuinely useful, explain why they matter, and make them easy to explore.</p>
+  <div class="briefs-intro-divider"></div>
+  <div class="briefs-meta-strip">
+    <div class="briefs-meta-item"><div class="briefs-meta-label">Published By</div><div class="briefs-meta-val">ATS — AI, Technology &amp; Solutions</div></div>
+    <div class="briefs-meta-item"><div class="briefs-meta-label">Cadence</div><div class="briefs-meta-val">Bi-weekly, ongoing</div></div>
+    <div class="briefs-meta-item"><div class="briefs-meta-label">Audience</div><div class="briefs-meta-val">Title ops, agents, field enablement</div></div>
+    <div class="briefs-meta-item"><div class="briefs-meta-label">Distribution</div><div class="briefs-meta-val">Internal · WFG Agency Network</div></div>
+  </div>
+  <div class="quote-block" style="margin-bottom:48px;">
+    <p>Each issue covers two or three tools the ATS team has spent time with, a fraud or risk pattern worth understanding in operational detail, and a short note on where things connect to the broader WFG picture. They're meant to be quick to get through and actually useful once you do.</p>
+  </div>
+  <div class="card-grid" style="margin-bottom:40px;">
+    <div class="card"><div class="card-icon">🛠</div><h3>Practical AI Tools</h3><p>Each issue surfaces tools relevant to title operations — explained with enough context to understand whether they're worth exploring, not just catalogued for completeness.</p></div>
+    <div class="card"><div class="card-icon">⚠️</div><h3>Fraud Awareness</h3><p>One fraud or risk pattern per issue, covered in enough operational detail to be useful in training conversations — not just a bullet-point reminder to "be careful."</p></div>
+    <div class="card"><div class="card-icon">📡</div><h3>ATS Perspective</h3><p>Where relevant, the team adds context on how a tool or risk pattern connects to WFG's operating model, field initiatives, or ongoing technology work.</p></div>
+  </div>
+  <div class="briefs-issues-label">Current Issues</div>
+  <div class="briefs-issues-grid">
+    <a class="brief-issue-card" onclick="showBriefs('v1');return false;" href="#">
+      <div class="bic-num">Issue 01 · Feb 2026</div>
+      <div class="bic-title">DocAnalyzer, Alanna &amp; Wire Fraud Basics</div>
+      <div class="bic-tools">DocAnalyzer.ai · Alanna.ai · Cyber411.ai</div>
+      <div class="bic-arrow">Read Issue →</div>
+      <div><span class="bic-badge fraud">Fraud: Patient Attack + Display Name Trick</span></div>
+    </a>
+    <a class="brief-issue-card" onclick="showBriefs('v2');return false;" href="#">
+      <div class="bic-num">Issue 02 · Feb 2026</div>
+      <div class="bic-title">Rhino AI, HouseWhisper &amp; the AI-Powered Strike</div>
+      <div class="bic-tools">Rhino AI · HouseWhisper AI</div>
+      <div class="bic-arrow">Read Issue →</div>
+      <div><span class="bic-badge fraud">Fraud: AI-Assisted Wire Attack Sequence</span></div>
+    </a>
+    <a class="brief-issue-card" onclick="showBriefs('v3');return false;" href="#">
+      <div class="bic-num">Issue 03 · Mar 2026</div>
+      <div class="bic-title">Orbital, PalmAgent &amp; Seller Impersonation</div>
+      <div class="bic-tools">Orbital · PalmAgent</div>
+      <div class="bic-arrow">Read Issue →</div>
+      <div><span class="bic-badge fraud">Fraud: POA Fraud + Identity Fabrication</span></div>
+    </a>
+    <a class="brief-issue-card" onclick="showBriefs('v4');return false;" href="#">
+      <div class="bic-num">Issue 04 · Mar 2026</div>
+      <div class="bic-title">Mapify, Perplexity &amp; Fake Payoff Statements</div>
+      <div class="bic-tools">Mapify.ai · Perplexity AI</div>
+      <div class="bic-arrow">Read Issue →</div>
+      <div><span class="bic-badge fraud">Fraud: Counterfeit Payoff Documents</span></div>
+    </a>
+  </div>
+  <div class="bridge">
+    <h3>How to Use This Series</h3>
+    <p>Each issue stands on its own — open any version and read it in full, or jump directly to the fraud section if that's what you need. The tool sections are written to be skimmable but detailed enough to be actionable. If something in a brief connects to work you're doing or a situation your team has encountered, the ATS team is the right point of contact. Reach out at ATSTeam@wfgtitle.com.</p>
+  </div>
+</div>
+</div>
+
+<!-- ── BRIEF V1 ── -->
+<div id="briefs-v1" class="briefs-section">
+<div class="brief-page">
+  <div class="brief-back-nav">
+    <button class="brief-back-btn" onclick="showBriefs('intro')">← All Briefs</button>
+    <div class="brief-nav-arrows">
+      <button class="brief-nav-btn" disabled>← Prev</button>
+      <button class="brief-nav-btn" onclick="showBriefs('v2')">Next →</button>
+    </div>
+  </div>
+  <div class="brief-issue-tag">Issue 01 · Volume 1 · February 6, 2026</div>
+  <h1 class="brief-title">DocAnalyzer, Alanna<br><span class="acc">&amp; Two Wire Fraud Patterns</span></h1>
+  <p class="brief-intro">The first issue. Two tools worth knowing about, and two fraud scenarios that come up often enough in title operations that every team should be comfortable discussing them out loud. The tools are on opposite ends of the complexity spectrum — one is free and instant to try, the other is enterprise-grade. Both are useful.</p>
+
+  <!-- TOOL 1 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 01 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 01</div>
+          <div class="btc-name">DocAnalyzer.ai</div>
+          <div class="btc-url">docanalyzer.ai</div>
+        </div>
+        <span class="btc-badge">Document Intelligence</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">The concept is simple: upload a document and ask it questions. A 60-page title commitment, an SOP, a state regulation — whatever you'd normally have to search through manually. Answers come back in seconds, grounded only in what you uploaded, not the open internet.</p>
+        <p class="btc-prose">The practical payoff for examiners is real. Finding a specific clause in a long document typically takes 20 minutes or more. With DocAnalyzer, it takes under a minute. <strong>The general estimate is 5–7 hours saved per week per examiner</strong> — time that can go back to actual underwriting judgment rather than document navigation.</p>
+        <div class="btc-highlight"><p>New team members can answer their own questions from uploaded reference materials rather than pulling a senior examiner out of their work every time. It doesn't replace mentorship, but it handles the routine lookups so the senior conversations can be the important ones.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Underwriting</span>
+          <span class="btc-tag">Training &amp; CE</span>
+          <span class="btc-tag">Document Review</span>
+          <span class="btc-tag">Compliance Lookup</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — DocAnalyzer.ai</div>
+              <div class="vid-placeholder-desc">Walkthrough: uploading a title commitment and querying specific clauses</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAG_jxnSk4Q/shXlBvTViXvPY5tCMJr8ew/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAG_jxnSk4Q/shXlBvTViXvPY5tCMJr8ew/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v1_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/@docAnalyzer_ai" target="_blank" class="vid-link" onclick="trackEvent('tool_docanalyzer_youtube_clicked')">↗ YouTube Channel</a>
+            <a href="https://docanalyzer.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_docanalyzer_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://docanalyzer.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_docanalyzer_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">DocAnalyzer.ai</span><span class="ref-link-label">Official Site</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Product Overview</span><span class="ref-link-label">Product Page</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_tools_overview_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Tools Overview</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_doc_review_process_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Document Review Process</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/@docAnalyzer_ai" target="_blank" class="ref-link" onclick="trackEvent('tool_docanalyzer_youtube_clicked')"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">DocAnalyzer YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">AI for Document Review</span><span class="ref-link-label">YouTube</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 2 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 02 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 02</div>
+          <div class="btc-name">Alanna.ai</div>
+          <div class="btc-url">alanna.ai</div>
+        </div>
+        <span class="btc-badge">Title Operations AI</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">Alanna is built specifically for title companies. It connects into your internal systems and handles inbound client communication — answering order status questions, providing updates, and generating net sheets — around the clock, without staff involvement for the routine inquiries.</p>
+        <p class="btc-prose"><strong>Processors at most title shops spend 10 to 15 hours a week on repetitive status questions. That's $12K to $18K per year per person in labor going toward tasks that don't require human judgment.</strong> For a team of five, the opportunity cost runs $60K to $90K annually.</p>
+        <div class="btc-highlight"><p>Worth being honest about the scope: this is an enterprise product designed for offices handling 150 or more orders per month. It's not a tool for smaller shops. But for high-volume operations, it directly addresses one of the most persistent drains on processor capacity.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Title Operations</span>
+          <span class="btc-tag">Client Communication</span>
+          <span class="btc-tag">High-Volume Offices</span>
+          <span class="btc-tag">Enterprise</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — Alanna.ai</div>
+              <div class="vid-placeholder-desc">Product overview: client Q&amp;A automation and net sheet generation</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAG_kJlzyZY/1PCQVxSIKQUwWzoysVXtuA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAG_kJlzyZY/1PCQVxSIKQUwWzoysVXtuA/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v1_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/watch?v=7w4tZPp3Wqk" target="_blank" class="vid-link" onclick="trackEvent('tool_alanna_youtube_clicked')">↗ Product Demo (YouTube)</a>
+            <a href="https://www.alanna.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_alanna_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://www.alanna.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_alanna_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Alanna.ai</span><span class="ref-link-label">Official Site</span></a>
+              <a href="https://www.youtube.com/watch?v=7w4tZPp3Wqk" target="_blank" class="ref-link" onclick="trackEvent('tool_alanna_youtube_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Product Demo</span><span class="ref-link-label">YouTube</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_team_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Team Page</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ops_automation_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Ops Automation Overview</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=alanna+ai+title+company" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">AI in Title Operations</span><span class="ref-link-label">YouTube</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Client Automation Case Studies</span><span class="ref-link-label">Reference</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAUD V1 -->
+  <div class="brief-section">
+    <div class="brief-section-label red-label">Fraud Awareness</div>
+    <div class="brief-fraud-card">
+      <div class="bfc-header">
+        <div>
+          <div class="bfc-tag">Two Patterns · Cyber411.ai Reference</div>
+          <div class="bfc-name">The Patient Attack &amp; The Display Name Trick</div>
+        </div>
+        <span class="bfc-badge">Wire Fraud</span>
+      </div>
+      <div class="bfc-body">
+        <p class="bfc-prose">Two scenarios from Cyber411.ai's awareness library come up consistently in title-adjacent contexts, and both are worth walking through with your team rather than just forwarding as bullet points.</p>
+        <div class="bfc-callout">
+          <div class="bfc-callout-label">Pattern 1 — The Patient Attack</div>
+          <ul class="bfc-list">
+            <li>A fraudster gains access to a real email account and watches for two to three weeks — learning who talks to whom and the transaction timeline.</li>
+            <li>Just before closing, they send updated wire instructions from the legitimate, compromised account. No spoofed domain. No fake display name. It's the real email.</li>
+            <li>It passes most people's instinctive scan because there's nothing visually wrong.</li>
+          </ul>
+        </div>
+        <div class="bfc-callout">
+          <div class="bfc-callout-label">Pattern 2 — The Display Name Trick</div>
+          <ul class="bfc-list">
+            <li>The email shows a familiar display name: "Sarah Johnson, First National Title." Everything looks normal at a glance.</li>
+            <li>The actual sending address is sarah.johnson.fnttitle@gmail.com — not the company domain. Almost nobody checks the actual address unless they've been trained to.</li>
+          </ul>
+        </div>
+        <div class="bfc-guidance">
+          <div class="bfc-guidance-label">What Stops Both of These</div>
+          <ul class="bfc-guidance-list">
+            <li>Verbally verify all wire instructions using a number already in your records — not a number included in the email itself.</li>
+            <li>Inspect the actual sending address on any email that includes wire instructions. It takes three seconds. Do it every time.</li>
+            <li>Any mid-transaction change to wire details should trigger a direct phone call before anything else happens.</li>
+          </ul>
+        </div>
+        <div class="vid-placeholder">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon red-icon">⚠</div>
+            <div>
+              <div class="vid-placeholder-title">Fraud Walkthrough — Patient Attack &amp; Display Name Trick</div>
+              <div class="vid-placeholder-desc">ATS team explanation of both fraud patterns with real-world context</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.25%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAG_kccsbKM/zVccJ47DCYjpFsP7cunMcA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAG_kccsbKM/zVccJ47DCYjpFsP7cunMcA/watch" target="_blank" class="vid-link red-link" onclick="trackEvent('internal_ref_fraud_recording_v1_clicked')">↗ Watch on Canva</a>
+            <a href="https://cyber411.ai" target="_blank" class="vid-link red-link" onclick="trackEvent('tool_cyber411_clicked')">↗ Cyber411.ai</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Fraud References &amp; Resources</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Fraud Intelligence</div>
+              <a href="https://cyber411.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_cyber411_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Cyber411.ai</span><span class="ref-link-label">Resource Hub</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Wire Fraud — Current Patterns</span><span class="ref-link-label">Reference</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_wfg_fraud_policy_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">WFG Fraud Awareness Policy</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_fraud_series_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Fraud Awareness Series</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">External Learning</div>
+              <a href="https://www.youtube.com/results?search_query=wire+fraud+title+company" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Wire Fraud in Title — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="https://www.alta.org/fraud" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">ALTA Fraud Resources</span><span class="ref-link-label">Industry Ref</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brief-closing">
+    <div class="brief-closing-label">ATS Note</div>
+    <p>This series is part of how the ATS team stays connected to the agent network — not as a broadcast, but as something useful to come back to. Future issues will keep the same format: a couple of tools worth knowing, a fraud pattern worth talking about, and a short note on what any of it means for WFG. If there's a tool or topic you'd like covered, send it to <strong>ATSTeam@wfgtitle.com</strong>.</p>
+  </div>
+  <div class="brief-issue-nav">
+    <div><div class="bin-label">Currently Reading</div><div class="bin-title">Issue 01 — DocAnalyzer, Alanna &amp; Wire Fraud Patterns</div></div>
+    <button class="bin-btn" onclick="showBriefs('v2')">Next Issue →</button>
+  </div>
+</div>
+</div>
+
+<!-- ── BRIEF V2 ── -->
+<div id="briefs-v2" class="briefs-section">
+<div class="brief-page">
+  <div class="brief-back-nav">
+    <button class="brief-back-btn" onclick="showBriefs('intro')">← All Briefs</button>
+    <div class="brief-nav-arrows">
+      <button class="brief-nav-btn" onclick="showBriefs('v1')">← Prev</button>
+      <button class="brief-nav-btn" onclick="showBriefs('v3')">Next →</button>
+    </div>
+  </div>
+  <div class="brief-issue-tag">Issue 02 · Volume 1 · February 23, 2026</div>
+  <h1 class="brief-title">Rhino AI, HouseWhisper<br><span class="acc">&amp; the AI-Powered Strike</span></h1>
+  <p class="brief-intro">Two tools making agents noticeably faster at listing prep and lead response. And a fraud scenario that uses the exact same AI capabilities to construct more convincing wire fraud attempts. That combination is worth sitting with for a moment — the tools and the threat are drawing from the same well.</p>
+
+  <!-- TOOL 1 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 01 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 01</div>
+          <div class="btc-name">Rhino AI</div>
+          <div class="btc-url">rhino.ai</div>
+        </div>
+        <span class="btc-badge">Listing Research</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">Enter a property address and Rhino pulls comps, neighborhood data, and market context automatically, then builds a full listing presentation package from it. What used to take 30 to 60 minutes comes back in under five minutes.</p>
+        <p class="btc-prose">For title teams, the ripple effect is worth thinking about. <strong>Higher volume with tighter windows changes what organized title operations look like.</strong> It's not a problem Rhino creates — it's a reality it accelerates.</p>
+        <div class="btc-highlight"><p>An agent doing 20 listings a year and cutting prep from 45 minutes to 5 saves roughly 13 hours annually per agent. Multiply across a team or a firm and the volume implications for title become real. More files, moving faster.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Listing Prep</span>
+          <span class="btc-tag">Market Analysis</span>
+          <span class="btc-tag">Agent Efficiency</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — Rhino AI</div>
+              <div class="vid-placeholder-desc">Walkthrough: address input to complete listing presentation package</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:65.0340%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHBnbyEIyk/EF5txMxdRNTH2Ms3Saja-g/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHBnbyEIyk/EF5txMxdRNTH2Ms3Saja-g/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v2_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/results?search_query=rhino+ai+listing+presentation" target="_blank" class="vid-link" onclick="trackEvent('tool_rhinoai_youtube_clicked')">↗ YouTube Tutorial</a>
+            <a href="https://rhino.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_rhinoai_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://rhino.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_rhinoai_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Rhino AI</span><span class="ref-link-label">Official Site</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Product Overview</span><span class="ref-link-label">Product Page</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_agent_enablement_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Agent Enablement Resources</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_field_intelligence_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Field Intelligence Notes</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=rhino+ai+real+estate" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Rhino AI on YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">AI Listing Tools Comparison</span><span class="ref-link-label">Reference</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 2 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 02 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 02</div>
+          <div class="btc-name">HouseWhisper AI</div>
+          <div class="btc-url">housewhisper.ai</div>
+        </div>
+        <span class="btc-badge">Lead Automation</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">HouseWhisper learns an agent's communication style and uses it to respond to inbound leads instantly, handle basic Q&amp;A, and draft follow-up messages while the agent is with a client or showing a property.</p>
+        <p class="btc-prose"><strong>Lead conversion is 9 times higher when the response arrives within five minutes versus thirty.</strong> Most agents can't consistently respond within five minutes. HouseWhisper closes that gap.</p>
+        <div class="btc-highlight"><p>When agents convert at higher rates and communicate more consistently, pipeline visibility improves. Fewer surprises. More predictable order flow. That makes it easier to staff and schedule.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Lead Response</span>
+          <span class="btc-tag">Pipeline Consistency</span>
+          <span class="btc-tag">Agent Enablement</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — HouseWhisper AI</div>
+              <div class="vid-placeholder-desc">Product walkthrough: automated lead response and follow-up drafting</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:65.0340%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHBnVU-syU/S5VEGDNCaw6XX6oSzVtA2A/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHBnVU-syU/S5VEGDNCaw6XX6oSzVtA2A/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v2_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/@HouseWhisperAI" target="_blank" class="vid-link" onclick="trackEvent('tool_housewhisper_youtube_clicked')">↗ YouTube Channel</a>
+            <a href="https://www.housewhisper.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_housewhisper_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://www.housewhisper.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_housewhisper_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">HouseWhisper AI</span><span class="ref-link-label">Official Site</span></a>
+              <a href="https://www.youtube.com/@HouseWhisperAI" target="_blank" class="ref-link" onclick="trackEvent('tool_housewhisper_youtube_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Product Demos</span><span class="ref-link-label">YouTube</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_fieldiq_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">FieldIQ SalesCRM Overview</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_agent_enablement_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Agent Enablement Notes</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=AI+real+estate+lead+response" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">AI Lead Response Tools</span><span class="ref-link-label">YouTube</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Lead Conversion Research</span><span class="ref-link-label">Reference</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAUD V2 -->
+  <div class="brief-section">
+    <div class="brief-section-label red-label">Fraud Awareness</div>
+    <div class="brief-fraud-card">
+      <div class="bfc-header">
+        <div>
+          <div class="bfc-tag">Active &amp; Documented Pattern</div>
+          <div class="bfc-name">Wire Fraud Is Getting Smarter — The AI-Assisted Attack</div>
+        </div>
+        <span class="bfc-badge">Elevated Risk</span>
+      </div>
+      <div class="bfc-body">
+        <p class="bfc-prose">The same AI that makes the tools above fast and convincing is now being used to make wire fraud harder to detect. This isn't theoretical. The pattern below describes an active, documented attack methodology appearing more frequently in real estate transactions.</p>
+        <div class="bfc-callout">
+          <div class="bfc-callout-label">How the Attack Sequence Works</div>
+          <ul class="bfc-list">
+            <li><strong>Weeks 1–3, surveillance only:</strong> The attacker compromises an email account and does nothing visible. They study communication patterns, transaction timelines, and who has authority over wire decisions.</li>
+            <li><strong>Week 4, the strike:</strong> AI drafts an email using the agent's exact tone and language, references the correct property, and sends it at 4 PM the day before closing — when pressure is highest and scrutiny is lowest.</li>
+            <li><strong>The spoofing layer:</strong> The display name shows a trusted person. The sending domain is a near-match — wellsfarg0.com instead of wellsfargo.com.</li>
+            <li><strong>The urgency frame:</strong> "Must fund today." The time pressure is engineered — it's the mechanism that discourages verification.</li>
+          </ul>
+        </div>
+        <div class="bfc-guidance">
+          <div class="bfc-guidance-label">What Actually Stops This</div>
+          <ul class="bfc-guidance-list">
+            <li>Call to verify any wire changes using a number already in your records — not one from the email.</li>
+            <li>Hover the sender display name and inspect the real address. Three seconds, every time.</li>
+            <li>Educate clients about wire fraud at the start of the transaction — at first contact, not the day before close.</li>
+            <li>Re-verify wire details immediately before funding, even if they were confirmed the day prior.</li>
+          </ul>
+        </div>
+        <div class="vid-placeholder">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon red-icon">⚠</div>
+            <div>
+              <div class="vid-placeholder-title">Fraud Walkthrough — AI-Assisted Wire Attack Sequence</div>
+              <div class="vid-placeholder-desc">ATS team walkthrough of the full attack pattern with email examples</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:65.0340%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHBngiu04w/a-M_lj6X7z8kL2JzdDQgFw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHBngiu04w/a-M_lj6X7z8kL2JzdDQgFw/watch" target="_blank" class="vid-link red-link" onclick="trackEvent('internal_ref_fraud_recording_v2_clicked')">↗ Watch on Canva</a>
+            <a href="#" class="vid-link red-link" onclick="trackEvent('internal_ref_wfg_fraud_awareness_clicked')">WFG Fraud Awareness Reference</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Fraud References &amp; Resources</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Fraud Intelligence</div>
+              <a href="https://cyber411.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_cyber411_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Cyber411.ai</span><span class="ref-link-label">Resource Hub</span></a>
+              <a href="https://www.ic3.gov" target="_blank" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">FBI IC3 — BEC Reports</span><span class="ref-link-label">Reference</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_wfg_fraud_policy_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">WFG Wire Fraud Policy</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_fraud_series_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Fraud Awareness Series</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">External Learning</div>
+              <a href="https://www.alta.org/fraud" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">ALTA Fraud Resources</span><span class="ref-link-label">Industry</span></a>
+              <a href="https://www.youtube.com/results?search_query=wire+fraud+real+estate+AI" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Wire Fraud + AI — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brief-closing">
+    <div class="brief-closing-label">ATS Observation</div>
+    <p>The overlap between the tools that make agents more productive and the tools that make fraud harder to detect is not a coincidence — it's the same underlying capability applied differently. The fraud pattern in this issue is worth explaining out loud to your team, not just sharing as a document.</p>
+  </div>
+  <div class="brief-issue-nav">
+    <div><div class="bin-label">Currently Reading</div><div class="bin-title">Issue 02 — Rhino AI, HouseWhisper &amp; the AI-Powered Strike</div></div>
+    <button class="bin-btn" onclick="showBriefs('v3')">Next Issue →</button>
+  </div>
+</div>
+</div>
+
+<!-- ── BRIEF V3 ── -->
+<div id="briefs-v3" class="briefs-section">
+<div class="brief-page">
+  <div class="brief-back-nav">
+    <button class="brief-back-btn" onclick="showBriefs('intro')">← All Briefs</button>
+    <div class="brief-nav-arrows">
+      <button class="brief-nav-btn" onclick="showBriefs('v2')">← Prev</button>
+      <button class="brief-nav-btn" onclick="showBriefs('v4')">Next →</button>
+    </div>
+  </div>
+  <div class="brief-issue-tag">Issue 03 · Volume 1 · March 2026</div>
+  <h1 class="brief-title">Orbital, PalmAgent<br><span class="acc">&amp; a Seller Impersonation Case</span></h1>
+  <p class="brief-intro">Two tools that reduce friction at different points in the workflow. And a fraud case drawn from an actual file review — one where the flags weren't hidden, just distributed across the file in a way that's easy to miss when you're managing multiple closings and working against a deadline.</p>
+
+  <!-- TOOL 1 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 01 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 01</div>
+          <div class="btc-name">Orbital</div>
+          <div class="btc-url">getorbital.ai</div>
+        </div>
+        <span class="btc-badge">Document Review</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">Orbital reads through title reports, surveys, and legal descriptions and surfaces the parts that typically warrant the most attention — ownership history, encumbrances, legal description issues, anything that could create a problem at closing.</p>
+        <p class="btc-prose">The judgment call stays with the reviewer. <strong>Manual review of a typical document package runs 30 to 90 minutes. The general estimate for time-to-surface-key-sections with Orbital is around half that.</strong></p>
+        <div class="btc-highlight"><p>For examiners carrying multiple simultaneous files, this kind of compression matters week over week. The work doesn't get easier — but the navigation does, which frees up attention for the places where experience actually counts.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Title Examination</span>
+          <span class="btc-tag">Document Review</span>
+          <span class="btc-tag">Multi-File Workflows</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — Orbital</div>
+              <div class="vid-placeholder-desc">Walkthrough: title report review, surfacing key sections and encumbrances</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.2500%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHDqQRqFD4/_70V10Aa2d99tKGDvNashQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHDqQRqFD4/_70V10Aa2d99tKGDvNashQ/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v3_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/results?search_query=orbital+AI+title+document+review" target="_blank" class="vid-link" onclick="trackEvent('tool_orbital_youtube_clicked')">↗ YouTube Tutorial</a>
+            <a href="https://www.getorbital.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_orbital_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://www.getorbital.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_orbital_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Orbital</span><span class="ref-link-label">Official Site</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Product Overview</span><span class="ref-link-label">Product Page</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_doc_ai_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Document AI Resources</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_title_exam_standards_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Title Examination Standards</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=orbital+AI+title" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Orbital AI — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="https://www.youtube.com/results?search_query=AI+real+estate+document+analysis" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">AI Document Review Context</span><span class="ref-link-label">YouTube</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 2 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 02 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 02</div>
+          <div class="btc-name">PalmAgent</div>
+          <div class="btc-url">palmagent.com</div>
+        </div>
+        <span class="btc-badge">Closing Cost Estimates</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">PalmAgent calculates seller net sheets and buyer closing cost estimates in under 30 seconds — commissions, taxes, title fees, assumed costs — while a client conversation is still happening.</p>
+        <p class="btc-prose"><strong>When numbers appear in real time, the conversation stays on the decision rather than the arithmetic.</strong> Agents who run cleaner financial conversations tend to have fewer last-minute number surprises at closing.</p>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Net Sheets</span>
+          <span class="btc-tag">Closing Estimates</span>
+          <span class="btc-tag">Agent-Client Conversations</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — PalmAgent</div>
+              <div class="vid-placeholder-desc">Walkthrough: net sheet and closing cost estimate generation during a live conversation</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.2500%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHDqmX8zAI/4O2uBHI4hwo82p3eDj34vg/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHDqmX8zAI/4O2uBHI4hwo82p3eDj34vg/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v3_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/results?search_query=palmagent+net+sheet+demo" target="_blank" class="vid-link" onclick="trackEvent('tool_palmagent_youtube_clicked')">↗ YouTube Demo</a>
+            <a href="https://www.palmagent.com" target="_blank" class="vid-link" onclick="trackEvent('tool_palmagent_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://www.palmagent.com" target="_blank" class="ref-link" onclick="trackEvent('tool_palmagent_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">PalmAgent</span><span class="ref-link-label">Official Site</span></a>
+              <a href="https://www.youtube.com/results?search_query=palmagent+real+estate" target="_blank" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Product Demos</span><span class="ref-link-label">YouTube</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_wfg_net_sheet_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">WFG Net Sheet Process</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_agent_tx_resources_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Agent Transaction Resources</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=net+sheet+closing+cost+tool" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Closing Cost Tools — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Real Estate Financial Prep</span><span class="ref-link-label">Reference</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAUD V3 -->
+  <div class="brief-section">
+    <div class="brief-section-label red-label">Fraud Awareness</div>
+    <div class="brief-fraud-card">
+      <div class="bfc-header">
+        <div>
+          <div class="bfc-tag">Case Review — Actual File</div>
+          <div class="bfc-name">Seller Impersonation, POA Fraud &amp; Identity Fabrication</div>
+        </div>
+        <span class="bfc-badge">Documented Case</span>
+      </div>
+      <div class="bfc-body">
+        <p class="bfc-prose">This scenario came from a real file review. A seller inquiry arrived, documents followed promptly, and the transaction started moving like a normal cash close. What the review eventually surfaced was a layered impersonation attempt.</p>
+        <div class="bfc-callout">
+          <div class="bfc-callout-label">How the File Developed</div>
+          <ul class="bfc-list">
+            <li><strong>Opening:</strong> Seller claims power of attorney on behalf of the owner and requests a fast cash close. The property is vacant with no mortgage — a profile that simplifies the mechanics of this kind of fraud.</li>
+            <li><strong>Documents arrive quickly:</strong> A low-resolution driver's license. A notarized POA. Wire instructions routing to a foreign account. Seller is overseas and unavailable for in-person contact.</li>
+            <li><strong>Verification declined:</strong> A request for a video call is refused. A 14-day close window creates pressure to keep moving.</li>
+            <li><strong>What the review found:</strong> No POA recorded with the county. Document alteration detected on the submitted ID. A fraud risk scan returned a score of 87 out of 100.</li>
+            <li><strong>Outcome:</strong> File escalated before closing. Nothing recorded. No funds moved.</li>
+          </ul>
+        </div>
+        <div class="bfc-callout" style="background:rgba(255,78,106,.04);border-color:rgba(255,78,106,.12);">
+          <div class="bfc-callout-label">The Pattern — When Several of These Appear Together</div>
+          <ul class="bfc-list">
+            <li>Remote seller with an urgent, compressed close window</li>
+            <li>POA claim with no county record to verify it</li>
+            <li>Low-quality or potentially altered identity documents</li>
+            <li>Resistance when live verification is requested</li>
+            <li>Wire instructions routing to a foreign account</li>
+            <li>Vacant, free-and-clear property with an absent owner</li>
+          </ul>
+        </div>
+        <div class="bfc-guidance">
+          <div class="bfc-guidance-label">ATS Observations on This Case</div>
+          <ul class="bfc-guidance-list">
+            <li>None of these flags would have been alarming in isolation. The pattern only became clear when viewed together — which is why fraud scoring tools and a second-reviewer culture matter.</li>
+            <li>Vacant, free-and-clear properties are a known fraud target profile. This type of file warrants extra scrutiny as a standard practice.</li>
+            <li>A fast-moving file and a clean-looking file are not the same thing.</li>
+          </ul>
+        </div>
+        <div class="vid-placeholder">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon red-icon">⚠</div>
+            <div>
+              <div class="vid-placeholder-title">ATS Walkthrough — Seller Impersonation &amp; POA Fraud</div>
+              <div class="vid-placeholder-desc">Full thread explanation of the case — what was found and how the escalation played out</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.2500%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHDqj8acs0/pB3N2FNd2Y0ga9A6bUJA-Q/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHDqj8acs0/pB3N2FNd2Y0ga9A6bUJA-Q/watch" target="_blank" class="vid-link red-link" onclick="trackEvent('internal_ref_fraud_recording_v3_clicked')">↗ Watch on Canva</a>
+            <a href="#" class="vid-link red-link" onclick="trackEvent('internal_ref_wfg_fraud_awareness_clicked')">WFG Fraud Awareness Reference</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Fraud References &amp; Resources</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Fraud Intelligence</div>
+              <a href="https://cyber411.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_cyber411_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Cyber411.ai</span><span class="ref-link-label">Resource Hub</span></a>
+              <a href="https://www.alta.org/fraud" target="_blank" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">ALTA Fraud Resources</span><span class="ref-link-label">Industry</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_wfg_fraud_escalation_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">WFG Fraud Escalation Process</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_fraud_series_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Fraud Awareness Series</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">External Learning</div>
+              <a href="https://www.youtube.com/results?search_query=seller+impersonation+real+estate+fraud" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Seller Impersonation — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="https://www.alta.org/fraud" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">POA Fraud Guidance</span><span class="ref-link-label">ALTA</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brief-closing">
+    <div class="brief-closing-label">Closing Note</div>
+    <p>The signals in that file weren't hidden. They were spread across the transaction in a way that's easy to miss when you're moving quickly across multiple files. <strong>That's exactly where a second look — from a scoring system, a colleague, or simply slowing down — tends to make the difference.</strong> Questions or cases worth reviewing can go to ATSTeam@wfgtitle.com.</p>
+  </div>
+  <div class="brief-issue-nav">
+    <div><div class="bin-label">Currently Reading</div><div class="bin-title">Issue 03 — Orbital, PalmAgent &amp; Seller Impersonation</div></div>
+    <button class="bin-btn" onclick="showBriefs('v4')">Next Issue →</button>
+  </div>
+</div>
+</div>
+
+<!-- ── BRIEF V4 ── -->
+<div id="briefs-v4" class="briefs-section">
+<div class="brief-page">
+  <div class="brief-back-nav">
+    <button class="brief-back-btn" onclick="showBriefs('intro')">← All Briefs</button>
+    <div class="brief-nav-arrows">
+      <button class="brief-nav-btn" onclick="showBriefs('v3')">← Prev</button>
+      <button class="brief-nav-btn" disabled>Next →</button>
+    </div>
+  </div>
+  <div class="brief-issue-tag">Issue 04 · Volume 1 · March 2026</div>
+  <h1 class="brief-title">Mapify, Perplexity<br><span class="red">&amp; the Payoff Statement Swap</span></h1>
+  <p class="brief-intro">Two tools that address different sides of the same underlying problem — making complex information easier to navigate and act on. And a fraud pattern targeting a document every title team handles on every transaction: the payoff statement. It doesn't look foreign. That's the point.</p>
+
+  <!-- TOOL 1 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 01 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 01</div>
+          <div class="btc-name">Mapify.ai</div>
+          <div class="btc-url">mapify.ai</div>
+        </div>
+        <span class="btc-badge">Visual Intelligence</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">Paste a PDF, video URL, web page, or raw text into Mapify and it converts it into a visual mind map within seconds. The structure becomes navigable rather than linear — which changes how people engage with it, especially when the content is dense or unfamiliar.</p>
+        <p class="btc-prose">In title operations: run a state-specific closing procedure document through it and share the map with agents or newer team members. Break down a complex title commitment into a navigable visual. <strong>The output is imperfect but fast, and for reference documents that rarely get read in full, a visual entry point has real value.</strong></p>
+        <div class="btc-highlight"><p>Mapify works best as a starting point or summary layer, not a final deliverable. It's most useful when the goal is comprehension and navigation, not precision documentation.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Visual Summaries</span>
+          <span class="btc-tag">Training Materials</span>
+          <span class="btc-tag">Client Communication</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — Mapify.ai</div>
+              <div class="vid-placeholder-desc">Walkthrough: converting a title document into a navigable visual mind map</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.2500%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHDqv7HBVs/yp033MklFmyZleix84M9vQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHDqv7HBVs/yp033MklFmyZleix84M9vQ/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v4_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/results?search_query=mapify+ai+tutorial" target="_blank" class="vid-link" onclick="trackEvent('tool_mapify_youtube_clicked')">↗ YouTube Tutorial</a>
+            <a href="https://mapify.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_mapify_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://mapify.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_mapify_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Mapify.ai</span><span class="ref-link-label">Official Site</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Product Overview</span><span class="ref-link-label">Product Page</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_training_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Training Resources</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_client_education_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">Client Education Materials</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=mapify+ai+mind+map+tutorial" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Mapify Tutorial — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Visual Learning Tools in RE</span><span class="ref-link-label">Reference</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 2 -->
+  <div class="brief-section">
+    <div class="brief-section-label">Tool 02 of 02</div>
+    <div class="brief-tool-card">
+      <div class="btc-header">
+        <div>
+          <div class="btc-index">Tool 02</div>
+          <div class="btc-name">Perplexity AI</div>
+          <div class="btc-url">perplexity.ai</div>
+        </div>
+        <span class="btc-badge">Research Intelligence</span>
+      </div>
+      <div class="btc-body">
+        <p class="btc-prose">Perplexity is AI-powered search with cited sources. You ask a question and get an actual answer — not a list of links. More importantly, the answer shows you where it came from, so you can verify the source rather than having to take it on faith.</p>
+        <p class="btc-prose">Immediate applications: looking up recording requirements for an unfamiliar county, checking ALTA guidelines for a specific scenario, verifying whether a lender is licensed in a state. <strong>What used to require a call, a colleague, or a 20-minute search resolves in under a minute.</strong></p>
+        <div class="btc-highlight"><p>Perplexity is not a replacement for authoritative internal resources or legal guidance. But for the kind of quick-reference lookups that interrupt workflow multiple times a day, it's genuinely useful.</p></div>
+        <div class="btc-tags-row">
+          <span class="btc-tag">Regulatory Research</span>
+          <span class="btc-tag">Compliance Lookup</span>
+          <span class="btc-tag">Due Diligence</span>
+        </div>
+        <div class="vid-placeholder" style="margin-top:20px;">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon">▶</div>
+            <div>
+              <div class="vid-placeholder-title">Tool Demo — Perplexity AI</div>
+              <div class="vid-placeholder-desc">Walkthrough: regulatory and compliance lookups for title operations use cases</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.2500%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHDquE0DIs/rsQYXOjngCCT5Ti7NBqLeQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHDquE0DIs/rsQYXOjngCCT5Ti7NBqLeQ/watch" target="_blank" class="vid-link" onclick="trackEvent('internal_ref_ats_walkthrough_v4_clicked')">↗ Watch on Canva</a>
+            <a href="https://www.youtube.com/results?search_query=perplexity+ai+tutorial+2025" target="_blank" class="vid-link" onclick="trackEvent('tool_perplexity_youtube_clicked')">↗ YouTube Tutorial</a>
+            <a href="https://www.perplexity.ai" target="_blank" class="vid-link" onclick="trackEvent('tool_perplexity_clicked')">↗ Official Site</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Explore Further</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Official Tool Links</div>
+              <a href="https://www.perplexity.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_perplexity_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Perplexity AI</span><span class="ref-link-label">Official Site</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">Product Overview</span><span class="ref-link-label">Product Page</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_research_tools_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Research Tools Guide</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_wfg_compliance_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">WFG Compliance Resources</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">Tutorials &amp; Learning</div>
+              <a href="https://www.youtube.com/results?search_query=perplexity+ai+how+to+use" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Perplexity AI — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+              <a href="#" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">AI Research Tools Comparison</span><span class="ref-link-label">Reference</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAUD V4 -->
+  <div class="brief-section">
+    <div class="brief-section-label red-label">Fraud Awareness</div>
+    <div class="brief-fraud-card">
+      <div class="bfc-header">
+        <div>
+          <div class="bfc-tag">Documented Pattern · Increasing Frequency</div>
+          <div class="bfc-name">Fake Payoff Statement Fraud — The Lien That Never Closed</div>
+        </div>
+        <span class="bfc-badge">Critical Risk</span>
+      </div>
+      <div class="bfc-body">
+        <p class="bfc-prose">A fraudster intercepts a transaction, builds a counterfeit payoff statement using the correct loan number, borrower name, and lender letterhead — and swaps the wire routing account for their own. The deal funds. The money moves. The real lien stays open, because the real servicer never received anything.</p>
+        <p class="bfc-prose">Nobody realizes something is wrong until the payoff doesn't post. By then, the funds are gone.</p>
+        <div class="bfc-callout">
+          <div class="bfc-callout-label">Why This Is Difficult to Catch Before Funding</div>
+          <ul class="bfc-list">
+            <li><strong>The document looks correct.</strong> Loan number, borrower name, lender letterhead — all right. The only thing wrong is the routing account.</li>
+            <li><strong>The domain is close but not identical.</strong> A digit replaces a letter. A hyphen is added. It passes a quick glance.</li>
+            <li><strong>The urgency framing is engineered.</strong> "Must fund today." The pressure is deliberate — designed to discourage taking an extra step.</li>
+            <li><strong>The specificity builds false confidence.</strong> Because the fraudster accessed prior communication, they can reference the correct parties, property, and timeline.</li>
+          </ul>
+        </div>
+        <div class="bfc-guidance">
+          <div class="bfc-guidance-label">What Stops This</div>
+          <ul class="bfc-guidance-list">
+            <li>Call the servicer to verify payoff amounts and wire details using a number from your own records — not the number printed on the document you just received.</li>
+            <li>Any payoff statement that arrives through unexpected channels warrants a direct call before anything else.</li>
+            <li>Mid-transaction wire account changes are red flags by definition. Verify independently, regardless of how official the document looks.</li>
+            <li>Urgency framing is a tactic. A few minutes of verification is less expensive than an uncured lien and a missing wire.</li>
+          </ul>
+        </div>
+        <div class="vid-placeholder">
+          <div class="vid-placeholder-header">
+            <div class="vid-placeholder-icon red-icon">⚠</div>
+            <div>
+              <div class="vid-placeholder-title">ATS Walkthrough — Fake Payoff Statement Fraud</div>
+              <div class="vid-placeholder-desc">Detailed walkthrough of the payoff swap pattern, red flags, and verification process</div>
+            </div>
+          </div>
+          <div style="position:relative;width:100%;height:0;padding-top:56.2500%;overflow:hidden;">
+            <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+              src="https://www.canva.com/design/DAHE46cNq24/eM3X0lzcvRDKN516yQykxw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="vid-placeholder-footer">
+            <a href="https://www.canva.com/design/DAHE46cNq24/eM3X0lzcvRDKN516yQykxw/watch" target="_blank" class="vid-link red-link" onclick="trackEvent('internal_ref_fraud_recording_v4_clicked')">↗ Watch on Canva</a>
+            <a href="#" class="vid-link red-link" onclick="trackEvent('internal_ref_wfg_fraud_awareness_clicked')">WFG Fraud Awareness Reference</a>
+          </div>
+        </div>
+        <div class="ref-block">
+          <div class="ref-block-title">Fraud References &amp; Resources</div>
+          <div class="ref-groups">
+            <div class="ref-group">
+              <div class="ref-group-label">Fraud Intelligence</div>
+              <a href="https://cyber411.ai" target="_blank" class="ref-link" onclick="trackEvent('tool_cyber411_clicked')"><span class="ref-link-dot"></span><span class="ref-link-text">Cyber411.ai</span><span class="ref-link-label">Resource Hub</span></a>
+              <a href="https://www.ic3.gov" target="_blank" class="ref-link"><span class="ref-link-dot"></span><span class="ref-link-text">FBI IC3</span><span class="ref-link-label">BEC Reports</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gold-label">WFG Internal</div>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_wfg_payoff_verification_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">WFG Payoff Verification Process</span><span class="ref-link-label">Internal</span></a>
+              <a href="#" class="ref-link" onclick="trackEvent('internal_ref_ats_fraud_series_clicked')"><span class="ref-link-dot gold-dot"></span><span class="ref-link-text">ATS Fraud Awareness Series</span><span class="ref-link-label">WFG Resource</span></a>
+            </div>
+            <div class="ref-group">
+              <div class="ref-group-label gray-label">External Learning</div>
+              <a href="https://www.alta.org/fraud" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">ALTA Fraud Resources</span><span class="ref-link-label">Industry</span></a>
+              <a href="https://www.youtube.com/results?search_query=wire+fraud+payoff+statement+title" target="_blank" class="ref-link"><span class="ref-link-dot gray-dot"></span><span class="ref-link-text">Payoff Fraud — YouTube</span><span class="ref-link-label">Tutorial</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brief-closing">
+    <div class="brief-closing-label">ATS Closing Note</div>
+    <p>AI is making the work faster. It's also being used to make the threats more convincing. The edge available to title operations right now is a consistent verification discipline — applied on every transaction, not just the ones that feel suspicious. <strong>The files that create the most exposure are often the ones that looked the most routine.</strong> Reach out to ATSTeam@wfgtitle.com with questions, or to flag patterns your team has encountered that might be worth covering in a future issue.</p>
+  </div>
+  <div class="brief-issue-nav">
+    <div><div class="bin-label">Currently Reading</div><div class="bin-title">Issue 04 — Mapify, Perplexity &amp; the Payoff Statement Swap</div></div>
+    <button class="bin-btn" onclick="showBriefs('intro')">← Back to All Briefs</button>
+  </div>
+</div>
+</div>
+
+<!-- Briefs Footer -->
+<footer>
+  <div class="f-left">
+    WFG National Title Insurance Company · ATS Intelligence Briefs<br>
+    <span style="opacity:.45;">Internal Distribution Only · © 2026 WFG National Title Insurance Company</span>
+  </div>
+  <div class="f-right">WFG · ATS · IDEAS THAT IGNITE</div>
+</footer>
+</div><!-- /briefs-content -->
+
 </body>
 </html>
