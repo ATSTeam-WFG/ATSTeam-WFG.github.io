@@ -1,0 +1,55 @@
+{
+  "hash": "bd167e76",
+  "configHash": "c43aa559",
+  "lockfileHash": "b6d9ab12",
+  "browserHash": "689883aa",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "65b949df",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "e166edc0",
+      "needsInterop": true
+    },
+    "@microsoft/clarity": {
+      "src": "../../node_modules/@microsoft/clarity/index.js",
+      "file": "@microsoft_clarity.js",
+      "fileHash": "24a71827",
+      "needsInterop": false
+    },
+    "react-dom": {
+      "src": "../../node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "177e9df8",
+      "needsInterop": true
+    },
+    "embla-carousel-react": {
+      "src": "../../node_modules/embla-carousel-react/esm/embla-carousel-react.esm.js",
+      "file": "embla-carousel-react.js",
+      "fileHash": "8dc535b0",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "57ee235c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-XHU36PYF": {
+      "file": "chunk-XHU36PYF.js"
+    },
+    "chunk-32E4H3EV": {
+      "file": "chunk-32E4H3EV.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}
