@@ -1438,20 +1438,29 @@ function trackEvent(name) {
 function showMain(id) {
   document.getElementById('main-content').style.display = 'block';
   document.getElementById('briefs-content').style.display = 'none';
+  history.replaceState(null, '', window.location.pathname);
   const el = document.getElementById(id);
   if (el) setTimeout(() => el.scrollIntoView({behavior:'smooth',block:'start'}), 80);
 }
 
-function showBriefs(view) {
+function showBriefs(view, updateHash) {
   document.getElementById('main-content').style.display = 'none';
   document.getElementById('briefs-content').style.display = 'block';
   document.querySelectorAll('.briefs-section').forEach(s => s.classList.remove('active'));
   const map = {intro:'briefs-intro',v1:'briefs-v1',v2:'briefs-v2',v3:'briefs-v3',v4:'briefs-v4'};
   const t = document.getElementById(map[view]);
   if (t) { t.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  if (updateHash !== false) history.replaceState(null, '', '#briefs-' + view);
   const briefEventMap = {v1:'brief_v1_clicked',v2:'brief_v2_clicked',v3:'brief_v3_clicked',v4:'brief_v4_clicked'};
   if (briefEventMap[view]) trackEvent(briefEventMap[view]);
 }
+
+// Handle deep links on page load
+window.addEventListener('load', function() {
+  const hash = window.location.hash;
+  const match = hash.match(/^#briefs-(intro|v1|v2|v3|v4)$/);
+  if (match) showBriefs(match[1], false);
+});
 </script>
 
 <!-- ══════════════════════════════════════════
